@@ -1,27 +1,27 @@
 import BlurFade from '@/components/ui/blur-fade';
 import BoxReveal from '@/components/ui/box-reveal'
-import Marquee from '@/components/ui/marquee'
+// import Marquee from '@/components/ui/marquee'
 
 export default function Index() {
-    const logos = [
-        {
-            name: "Microsoft",
-            img: "https://wallpapers.com/images/featured/math-aesthetic-mv0izjvliqscpz56.webp",
-        },
-        {
-            name: "Microsoft",
-            img: "https://img.freepik.com/free-photo/numerology-concept-with-book_23-2150354496.jpg?size=626&ext=jpg",
-        }, {
-            name: "Microsoft",
-            img: "https://img.freepik.com/free-photo/school-supplies-arrangement-high-angle_23-2149000280.jpg?size=626&ext=jpg",
-        }, {
-            name: "Microsoft",
-            img: "https://img.freepik.com/free-photo/back-school-concept-with-various-supplies_23-2149557512.jpg?size=626&ext=jpg&ga=GA1.1.704646605.1729004324&semt=ais_hybrid",
-        }, {
-            name: "Microsoft",
-            img: "https://img.freepik.com/premium-photo/notebook-with-map-it-that-says-st-seuss-it_1109006-115659.jpg?size=626&ext=jpg&ga=GA1.1.704646605.1729004324&semt=ais_hybrid",
-        },
-    ];
+    // const logos = [
+    //     {
+    //         name: "Microsoft",
+    //         img: "https://wallpapers.com/images/featured/math-aesthetic-mv0izjvliqscpz56.webp",
+    //     },
+    //     {
+    //         name: "Microsoft",
+    //         img: "https://img.freepik.com/free-photo/numerology-concept-with-book_23-2150354496.jpg?size=626&ext=jpg",
+    //     }, {
+    //         name: "Microsoft",
+    //         img: "https://img.freepik.com/free-photo/school-supplies-arrangement-high-angle_23-2149000280.jpg?size=626&ext=jpg",
+    //     }, {
+    //         name: "Microsoft",
+    //         img: "https://img.freepik.com/free-photo/back-school-concept-with-various-supplies_23-2149557512.jpg?size=626&ext=jpg&ga=GA1.1.704646605.1729004324&semt=ais_hybrid",
+    //     }, {
+    //         name: "Microsoft",
+    //         img: "https://img.freepik.com/premium-photo/notebook-with-map-it-that-says-st-seuss-it_1109006-115659.jpg?size=626&ext=jpg&ga=GA1.1.704646605.1729004324&semt=ais_hybrid",
+    //     },
+    // ];
 
     return (
         <div>
