@@ -1,5 +1,7 @@
 import BlurFade from '@/components/ui/blur-fade';
 import BoxReveal from '@/components/ui/box-reveal'
+import Globe from '@/components/ui/globe';
+import PulsatingButton from '@/components/ui/pulsating-button';
 // import Marquee from '@/components/ui/marquee'
 
 export default function Index() {
@@ -40,6 +42,12 @@ export default function Index() {
                                 <span className="text-wise-primary">dengan Cepat!</span>
                             </h2>
                         </BoxReveal>
+
+                        <div className='p-3'>
+                            <PulsatingButton pulseColor={"#5145a8"} duration={"1.5s"} className='bg-wise-primary py-3 px-8 mt-12'>
+                                Jelajahi Fitur
+                            </PulsatingButton>
+                        </div>
                     </div>
 
                     {/* <div className="relative flex h-3/5 w-96 flex-col items-center justify-center gap-4 overflow-hidden rounded-lg border border-slate-50 shadow-sm bg-background px-16">
@@ -68,14 +76,14 @@ export default function Index() {
                 </div> */}
 
                     <BlurFade delay={0.25} inView className='w-[40%]'>
-                        <img className="w-full rounded-xl" src="/public/HeroImage.webp" alt="" />
+                        <img className="w-full rounded-xl" src="HeroImage.webp" alt="" />
                     </BlurFade>
                 </div>
             </section>
 
             <section className='h-screen flex items-center justify-between bg-wise-secondary px-48'>
                 <BlurFade delay={0.25} inView className='w-[40%]'>
-                    <img className="w-full rounded-xl" src="/public/DescImage.jpg" alt="" />
+                    <img className="w-full rounded-xl" src="DescImage.jpg" alt="" />
                 </BlurFade>
 
                 <BlurFade delay={0.25} inView className='w-[55%]'>
@@ -92,24 +100,9 @@ export default function Index() {
             </section>
 
             <section className='h-screen flex items-center justify-between gap-3 px-48'>
-                <div className="max-w-2xl items-center justify-center overflow-hidden">
-                    <BoxReveal boxColor={"#5145a8"} duration={0.5}>
-                        <p className="text-[3.5rem] font-semibold">
-                            Fibonacci, Prima, Geometri Semua <span className="text-wise-secondary">Siap Dihitung!</span>
-                        </p>
-                    </BoxReveal>
-
-                    <BoxReveal boxColor={"#5145a8"} duration={0.5}>
-                        <h2 className="mt-[.5rem] text-[1rem]">
-                            Hitung Semua Jenis Bilangan dan Geometri {" "}
-                            <span className="text-wise-secondary">dengan Cepat!</span>
-                        </h2>
-                    </BoxReveal>
+                <div className="relative flex size-full items-center justify-center">
+                    <Globe className="top-28" />
                 </div>
-
-                <BlurFade delay={0.25} inView className='w-[35%]'>
-                    <img className="w-full rounded-xl" src="/public/HeroImage.webp" alt="" />
-                </BlurFade>
             </section>
         </div>
     )
