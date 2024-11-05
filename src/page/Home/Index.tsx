@@ -25,32 +25,24 @@ export default function Index() {
 
     return (
         <div>
-            <section className='h-screen flex items-center justify-between gap-3'>
-                <div className="max-w-2xl items-center justify-center overflow-hidden">
-                    <BoxReveal boxColor={"#42A5F5"} duration={0.5}>
-                        <p className="text-[3.5rem] font-semibold">
-                            Fibonacci, Prima, Geometri Semua <span className="text-wise-secondary">Siap Dihitung!</span>
-                        </p>
-                    </BoxReveal>
-
-                    <BoxReveal boxColor={"#42A5F5"} duration={0.5}>
-                        <h2 className="mt-[.5rem] text-[1rem]">
-                            Hitung Semua Jenis Bilangan dan Geometri {" "}
-                            <span className="text-wise-secondary">dengan Cepat!</span>
-                        </h2>
-                    </BoxReveal>
-
-                    <BoxReveal boxColor={"#42A5F5"} duration={0.5}>
-                        <div className="mt-6">
-                            <p>
-                                -&gt; Dapatkan hasil akurat untuk bilangan Fibonacci, prima, genap, ganjil, dan banyak lagi. <br />
-                                -&gt; Kalkulator lengkap untuk menghitung luas persegi panjang, layang-layang. <br />
+            <section className='h-screen flex items-center justify-between gap-3 px-48'>
+                <div className='flex justify-between w-full'>
+                    <div className="max-w-2xl items-center justify-center overflow-hidden">
+                        <BoxReveal boxColor={"#5145a8"} duration={0.5}>
+                            <p className="text-[3.5rem] font-semibold">
+                                Fibonacci, Prima, Geometri Semua <span className="text-wise-primary">Siap Dihitung!</span>
                             </p>
-                        </div>
-                    </BoxReveal>
-                </div>
+                        </BoxReveal>
 
-                {/* <div className="relative flex h-3/5 w-96 flex-col items-center justify-center gap-4 overflow-hidden rounded-lg border border-slate-50 shadow-sm bg-background px-16">
+                        <BoxReveal boxColor={"#5145a8"} duration={0.5}>
+                            <h2 className="mt-[.5rem] text-[1rem]">
+                                Hitung Semua Jenis Bilangan dan Geometri {" "}
+                                <span className="text-wise-primary">dengan Cepat!</span>
+                            </h2>
+                        </BoxReveal>
+                    </div>
+
+                    {/* <div className="relative flex h-3/5 w-96 flex-col items-center justify-center gap-4 overflow-hidden rounded-lg border border-slate-50 shadow-sm bg-background px-16">
                     <div className="flex flex-row gap-4 [perspective:300px]">
                         <Marquee
                             className="justify-center overflow-hidden [--duration:60s] [--gap:1rem]"
@@ -75,13 +67,50 @@ export default function Index() {
                     <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
                 </div> */}
 
-                <BlurFade delay={0.25} inView className='w-[35%]'>
-                    <img className="w-full rounded-xl" src="https://media.istockphoto.com/id/1358014313/id/foto/sekelompok-siswa-sd-memiliki-kelas-komputer-dengan-guru-mereka-di-kelas.jpg?s=612x612&w=0&k=20&c=1eoRoAi5M3oq9nKomVFuQ8jUyV7E70txZar6-RRDToo=" alt="" />
+                    <BlurFade delay={0.25} inView className='w-[40%]'>
+                        <img className="w-full rounded-xl" src="/public/HeroImage.webp" alt="" />
+                    </BlurFade>
+                </div>
+            </section>
+
+            <section className='h-screen flex items-center justify-between bg-wise-secondary px-48'>
+                <BlurFade delay={0.25} inView className='w-[40%]'>
+                    <img className="w-full rounded-xl" src="/public/DescImage.jpg" alt="" />
+                </BlurFade>
+
+                <BlurFade delay={0.25} inView className='w-[55%]'>
+                    <p className='text-justify text-lg'>
+                        <b>Number Wise</b> adalah aplikasi web interaktif yang dirancang khusus untuk membantu Anda melakukan perhitungan berbagai
+                        jenis bilangan dan geometri dengan mudah dan cepat. Aplikasi ini merupakan solusi lengkap bagi siapa saja yang ingin
+                        mengeksplorasi konsep matematika mulai dari deret Fibonacci, bilangan prima, hingga berbagai rumus geometri tanpa kerumitan.
+                        Aplikasi ini cocok untuk pelajar, guru, atau siapa saja yang ingin belajar atau mengajarkan matematika dengan cara yang lebih
+                        menyenangkan dan efektif. Dengan antarmuka yang sederhana dan ramah pengguna, Number Wise dapat diakses kapan saja, baik melalui
+                        komputer maupun perangkat mobile. Setiap fitur dirancang untuk memberikan pengalaman pengguna yang intuitif, membuatnya mudah digunakan
+                        oleh berbagai kalangan, dari pemula hingga tingkat lanjut.
+                    </p>
                 </BlurFade>
             </section>
 
-            <section className='h-screen'></section>
-            <section className='h-screen'></section>
+            <section className='h-screen flex items-center justify-between gap-3 px-48'>
+                <div className="max-w-2xl items-center justify-center overflow-hidden">
+                    <BoxReveal boxColor={"#5145a8"} duration={0.5}>
+                        <p className="text-[3.5rem] font-semibold">
+                            Fibonacci, Prima, Geometri Semua <span className="text-wise-secondary">Siap Dihitung!</span>
+                        </p>
+                    </BoxReveal>
+
+                    <BoxReveal boxColor={"#5145a8"} duration={0.5}>
+                        <h2 className="mt-[.5rem] text-[1rem]">
+                            Hitung Semua Jenis Bilangan dan Geometri {" "}
+                            <span className="text-wise-secondary">dengan Cepat!</span>
+                        </h2>
+                    </BoxReveal>
+                </div>
+
+                <BlurFade delay={0.25} inView className='w-[35%]'>
+                    <img className="w-full rounded-xl" src="/public/HeroImage.webp" alt="" />
+                </BlurFade>
+            </section>
         </div>
     )
 }

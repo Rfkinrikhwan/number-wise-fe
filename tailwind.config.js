@@ -17,8 +17,8 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         wise: {
-          primary: "#42A5F5",
-          secondary: "#FF7043",
+          primary: "#5145a8",
+          secondary: "#f3f2f7",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
