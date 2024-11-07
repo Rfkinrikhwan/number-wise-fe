@@ -1,5 +1,6 @@
 import BlurFade from '@/components/ui/blur-fade';
 import BoxReveal from '@/components/ui/box-reveal'
+import { Button } from '@/components/ui/button';
 import Globe from '@/components/ui/globe';
 import PulsatingButton from '@/components/ui/pulsating-button';
 // import Marquee from '@/components/ui/marquee'
@@ -27,67 +28,38 @@ export default function Index() {
 
     return (
         <div>
-            <section className='h-screen flex items-center justify-between gap-3 px-48'>
-                <div className='flex justify-between w-full'>
-                    <div className="max-w-2xl items-center justify-center overflow-hidden">
-                        <BoxReveal boxColor={"#5145a8"} duration={0.5}>
-                            <p className="text-[3.5rem] font-semibold">
-                                Fibonacci, Prima, Geometri Semua <span className="text-wise-primary">Siap Dihitung!</span>
-                            </p>
-                        </BoxReveal>
+            <section className="flex flex-col-reverse items-center justify-center gap-3 px-4 py-24 sm:h-screen sm:flex-row sm:px-12 md:px-24 lg:px-48">
+                <div className="max-w-3xl">
+                    <BoxReveal boxColor={"#5145a8"} duration={0.5}>
+                        <p className="text-3xl font-semibold sm:text-[3.5rem] sm:leading-[4.5rem]">
+                            Fibonacci, Prima, Geometri Semua <span className="text-wise-primary">Siap Dihitung!</span>
+                        </p>
+                    </BoxReveal>
 
-                        <BoxReveal boxColor={"#5145a8"} duration={0.5}>
-                            <h2 className="mt-[.5rem] text-[1rem]">
-                                Hitung Semua Jenis Bilangan dan Geometri {" "}
-                                <span className="text-wise-primary">dengan Cepat!</span>
-                            </h2>
-                        </BoxReveal>
+                    <BoxReveal boxColor={"#5145a8"} duration={0.5}>
+                        <h2 className="mt-2 text-base sm:mt-[0.5rem] sm:text-lg">
+                            Hitung Semua Jenis Bilangan dan Geometri{" "}
+                            <span className="text-wise-primary">dengan Cepat!</span>
+                        </h2>
+                    </BoxReveal>
 
-                        <div className='p-3'>
-                            <PulsatingButton pulseColor={"#5145a8"} duration={"1.5s"} className='bg-wise-primary py-3 px-8 mt-12'>
-                                Jelajahi Fitur
-                            </PulsatingButton>
-                        </div>
-                    </div>
-
-                    {/* <div className="relative flex h-3/5 w-96 flex-col items-center justify-center gap-4 overflow-hidden rounded-lg border border-slate-50 shadow-sm bg-background px-16">
-                    <div className="flex flex-row gap-4 [perspective:300px]">
-                        <Marquee
-                            className="justify-center overflow-hidden [--duration:60s] [--gap:1rem]"
-                            vertical
-                            style={{
-                                transform:
-                                    "translateX(0px) translateY(0px) translateZ(-50px) rotateX(0deg) rotateY(-20deg) rotateZ(10deg) scale(1.5)",
-                            }}
-                        >
-                            {logos.map((data, idx) => (
-                                <img
-                                    key={idx}
-                                    src={data.img}
-                                    alt={data.name}
-                                    className="mx-auto h-full w-3/4 cursor-pointer rounded-xl border border-neutral-300 transition-all duration-300 hover:ring-1 hover:ring-neutral-300"
-                                />
-                            ))}
-                        </Marquee>
-                    </div>
-
-                    <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
-                </div> */}
-
-                    <BlurFade delay={0.25} inView className='w-[40%]'>
-                        <img className="w-full rounded-xl" src="HeroImage.webp" alt="" />
-                    </BlurFade>
+                    <Button className="bg-wise-primary px-10 py-7 mt-5 rounded-full  text-xl">
+                        Jelajahi Fitur
+                    </Button>
                 </div>
+
+                <BlurFade delay={0.25} inView className="w-11/12 sm:w-[40%] mt-12">
+                    <img className="w-full rounded-xl" src="HeroImage.webp" alt="" />
+                </BlurFade>
             </section>
 
-            <section className='h-screen flex items-center justify-between bg-wise-secondary px-48'>
-                <BlurFade delay={0.25} inView className='w-[40%]'>
+            <section className="flex flex-col items-center justify-center gap-3 px-4 py-20 bg-wise-secondary sm:h-screen sm:flex-row sm:px-12 md:px-24 lg:px-48">
+                <BlurFade delay={0.25} inView className="w-full sm:w-[40%]">
                     <img className="w-full rounded-xl" src="DescImage.jpg" alt="" />
                 </BlurFade>
 
-                <BlurFade delay={0.25} inView className='w-[55%]'>
-                    <p className='text-justify text-lg'>
+                <BlurFade delay={0.25} inView className="w-full sm:w-[55%]">
+                    <p className="text-justify text-lg">
                         <b>Number Wise</b> adalah aplikasi web interaktif yang dirancang khusus untuk membantu Anda melakukan perhitungan berbagai
                         jenis bilangan dan geometri dengan mudah dan cepat. Aplikasi ini merupakan solusi lengkap bagi siapa saja yang ingin
                         mengeksplorasi konsep matematika mulai dari deret Fibonacci, bilangan prima, hingga berbagai rumus geometri tanpa kerumitan.
@@ -99,10 +71,10 @@ export default function Index() {
                 </BlurFade>
             </section>
 
-            <section className='h-screen flex items-center justify-between gap-3 px-48'>
-                <div className="relative flex size-full items-center justify-center">
-                    <Globe className="top-28" />
-                </div>
+            <section className="flex items-center justify-center h-screen gap-3 px-4 sm:px-12 md:px-24 lg:px-48">
+                {/* <div className="relative flex size-full items-center justify-center">
+            <Globe className="top-28" />
+          </div> */}
             </section>
         </div>
     )
