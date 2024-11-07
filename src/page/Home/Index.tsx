@@ -1,8 +1,8 @@
 import BlurFade from '@/components/ui/blur-fade';
 import BoxReveal from '@/components/ui/box-reveal'
 import { Button } from '@/components/ui/button';
-import Globe from '@/components/ui/globe';
-import PulsatingButton from '@/components/ui/pulsating-button';
+// import Globe from '@/components/ui/globe';
+// import PulsatingButton from '@/components/ui/pulsating-button';
 // import Marquee from '@/components/ui/marquee'
 
 export default function Index() {
