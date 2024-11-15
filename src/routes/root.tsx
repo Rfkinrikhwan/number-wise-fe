@@ -1,6 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../components/layout";
 import Home from "@/page/Home/Index";
+import Feature from "@/page/Feature";
+import Games from "@/page/Game";
 
 export const routerData = createBrowserRouter([
     {
@@ -10,6 +12,14 @@ export const routerData = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />
+            },
+            {
+                path: "/fitur",
+                element: <Feature />
+            },
+            {
+                path: "/game",
+                element: <Games />
             }
         ]
     },
