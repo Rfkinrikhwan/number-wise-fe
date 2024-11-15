@@ -4,7 +4,7 @@ import SparklesText from '@/components/ui/sparkles-text'
 export default function SectionTwo() {
     return (
         <section className="flex flex-col items-center gap-10 bg-wise-secondary relative sm:px-12 md:px-24 lg:px-48 px-4 py-20">
-            <SparklesText text="About Number Wise" className='text-2xl sm:text-4xl' />
+            <SparklesText text="Tentang Number Wise" className='text-2xl sm:text-4xl' />
 
             <div className='flex flex-col items-start justify-between sm:flex-row gap-5 sm:gap-0'>
                 <BlurFade delay={0.25} inView className="w-full sm:w-[40%]">

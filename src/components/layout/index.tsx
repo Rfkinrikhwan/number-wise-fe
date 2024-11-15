@@ -36,13 +36,13 @@ export default function index() {
                         <SparklesText text="Number Wise" className="text-2xl sm:text-4xl" />
                     </Link>
                     <div className="hidden sm:flex gap-8">
-                        <Link to="/" className={path.pathname === "/" ? "text-wise-primary px-3 py-2 rounded-md text-lg font-bold" : "hover:text-gray-600 px-3 py-2 rounded-md text-lg font-semibold"}>
+                        <Link to="/" className={path.pathname === "/" ? "text-white bg-wise-primary px-6 py-2 rounded-full text-lg font-bold" : "hover:text-gray-600 px-3 py-2 text-lg font-semibold"}>
                             Home
                         </Link>
-                        <Link to="/fitur" className={path.pathname === "/fitur" ? "text-wise-primary px-3 py-2 rounded-md text-lg font-bold" : "hover:text-gray-600 px-3 py-2 rounded-md text-lg font-semibold"}>
+                        <Link to="/fitur" className={path.pathname === "/fitur" ? "text-white bg-wise-primary px-6 py-2 rounded-full text-lg font-bold" : "hover:text-gray-600 px-3 py-2 text-lg font-semibold"}>
                             Fitur
                         </Link>
-                        <Link to="/game" className={path.pathname === "/game" ? "text-wise-primary px-3 py-2 rounded-md text-lg font-bold" : "hover:text-gray-600 px-3 py-2 rounded-md text-lg font-semibold"}>
+                        <Link to="/game" className={path.pathname === "/game" ? "text-white bg-wise-primary px-6 py-2 rounded-full text-lg font-bold" : "hover:text-gray-600 px-3 py-2 text-lg font-semibold"}>
                             Game
                         </Link>
                     </div>

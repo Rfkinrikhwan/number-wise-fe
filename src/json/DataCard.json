@@ -1,0 +1,50 @@
+[
+    {
+        "title": "Deret Fibonaci",
+        "color": "bg-blue-500",
+        "textColor": "text-blue-100",
+        "description": "Deret Fibonacci merupakan rangkaian bilangan yang memiliki pola unik dan istimewa dalam matematika...",
+        "background_img": "illustration-6.png",
+        "link": "/fibonacci"
+    },
+    {
+        "title": "Deret Prima",
+        "color": "bg-purple-500",
+        "textColor": "text-purple-100",
+        "description": "Deret Prima adalah rangkaian bilangan istimewa yang hanya memiliki dua faktor pembagi: angka 1 dan...",
+        "background_img": "illustration-6.png",
+        "link": "/prima"
+    },
+    {
+        "title": "Deret Ganjil Genap",
+        "color": "bg-green-500",
+        "textColor": "text-green-100",
+        "description": "Deret Ganjil Genap merupakan konsep fundamental dalam matematika yang membagi bilangan bulat...",
+        "background_img": "illustration-6.png",
+        "link": "/ganjil-genap"
+    },
+    {
+        "title": "Deret Geometri",
+        "color": "bg-red-500",
+        "textColor": "text-red-100",
+        "description": "Deret Geometri adalah suatu rangkaian bilangan di mana setiap suku berikutnya diperoleh dengan...",
+        "background_img": "illustration-6.png",
+        "link": "/geometri"
+    },
+    {
+        "title": "Deret Kuadrat",
+        "color": "bg-orange-500",
+        "textColor": "text-red-100",
+        "description": "Deret Kuadrat menampilkan urutan bilangan yang dihasilkan dari mengkuadratkan bilangan asli...",
+        "background_img": "illustration-6.png",
+        "link": "/kuadrat"
+    },
+    {
+        "title": "Deret Kubik",
+        "color": "bg-pink-500",
+        "textColor": "text-red-100",
+        "description": "Deret Kubik merupakan rangkaian bilangan hasil pemangkatan tiga dari bilangan asli, membentuk...",
+        "background_img": "illustration-6.png",
+        "link": "/kubik"
+    }
+]
