@@ -1,8 +1,11 @@
 import BlurFade from '@/components/ui/blur-fade';
 import BoxReveal from '@/components/ui/box-reveal';
-import { Button } from '@/components/ui/button';
+import ShinyButton from '@/components/ui/shiny-button';
+import { useNavigate } from 'react-router-dom';
 
 export default function SectionOne() {
+    const navigate = useNavigate();
+
     return (
         <section className="flex flex-col-reverse items-center justify-center gap-10 px-4 py-24 sm:h-screen sm:flex-row sm:px-12 md:px-24 lg:px-48">
             <div className="max-w-xl">
@@ -19,9 +22,9 @@ export default function SectionOne() {
                     </h2>
                 </BoxReveal>
 
-                <Button className="bg-wise-primary px-10 py-7 mt-5 rounded-full  text-xl" data-aos="zoom-in-up">
+                <ShinyButton onClick={() => navigate("/fitur")} className="bg-wise-primary px-10 py-4 mt-8 rounded-full font-bold text-xl !text-white">
                     Jelajahi Fitur
-                </Button>
+                </ShinyButton>
             </div>
 
             <BlurFade delay={0.25} inView className="sm:w-[50%] mt-12">

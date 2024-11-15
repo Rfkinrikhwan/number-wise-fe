@@ -1,6 +1,5 @@
 import WiseIcon from "@/components/icon";
 import { Button } from "@/components/ui/button";
-import SparklesText from "@/components/ui/sparkles-text";
 import { useEffect } from "react";
 // import { Link } from "react-router-dom";
 
