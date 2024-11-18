@@ -35,7 +35,7 @@ export default function index() {
         <>
             <nav
                 className={`${hasBackground ? 'shadow-md bg-white' : 'border-b'
-                    } fixed w-full transition-all duration-300 z-50 py-3 px-4 sm:px-12 md:px-24 lg:px-48`}
+                    } sticky top-0 w-full transition-all duration-300 z-50 py-3 px-4 sm:px-12 md:px-24 lg:px-48`}
             >
                 <div className="h-14 flex items-center justify-between">
                     <Link to="/" className="text-2xl sm:text-3xl font-bold sm:block">

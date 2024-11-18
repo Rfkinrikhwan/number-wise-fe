@@ -7,7 +7,7 @@ export default function SectionOne() {
     const navigate = useNavigate();
 
     return (
-        <section className="flex flex-col-reverse items-center justify-center gap-10 px-4 py-24 sm:h-screen sm:flex-row sm:px-12 md:px-24 lg:px-48">
+        <section className="flex flex-col-reverse items-center justify-center gap-10 px-4 py-24 sm:h-[90vh] sm:flex-row sm:px-12 md:px-24 lg:px-48">
             <div className="max-w-xl">
                 <BoxReveal boxColor={"#a855f7"} duration={0.5}>
                     <p className="text-3xl font-bold sm:text-[3.5rem] sm:leading-[4.5rem]">

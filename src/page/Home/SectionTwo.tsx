@@ -47,7 +47,12 @@ export default function SectionTwo() {
                         <div className="flex items-center justify-between space-x-2 mb-1">
                             <div className="font-bold text-slate-900">Daffa Habibi</div>
                         </div>
-                        <div className="text-slate-500"></div>
+                        <div className="text-slate-500">
+                            haii aku dafa, aku salah satu anggota dari team project Number Wise.
+                            alasan aku memilih jurusan Teknik Informatika karena saya ingin
+                            mempelajari dan mengembangkan teknologi/koding.bukan hanya itu aja
+                            saya mau membuat sebuah teknologi menggunakan website
+                        </div>
                     </div>
                 </div>
 
@@ -57,7 +62,13 @@ export default function SectionTwo() {
                         <div className="flex items-center justify-between space-x-2 mb-1">
                             <div className="font-bold text-slate-900">Muhammad Rizna Taris</div>
                         </div>
-                        <div className="text-slate-500"></div>
+                        <div className="text-slate-500">
+                            haii aku Taris, aku salah satu anggota dari team project Number Wise.
+                            alasan saya memilih jurusan Teknik Informatika karena saya memiliki
+                            ketertarikan dengan perkembangan teknologi, bukan hanya itu Teknik
+                            Informatika melatih logika, kreativitas, dan kemampuan analitis,
+                            yang selalu membuat saya tertantang untuk berkembang di bidang teknologi.
+                        </div>
                     </div>
                 </div>
 
@@ -67,7 +78,13 @@ export default function SectionTwo() {
                         <div className="flex items-center justify-between space-x-2 mb-1">
                             <div className="font-bold text-slate-900">Rizky Syahputra</div>
                         </div>
-                        <div className="text-slate-500"></div>
+                        <div className="text-slate-500">
+                            haii aku rizky, aku salah satu anggota dari team project Number Wise.
+                            alasan aku memilih jurusan Teknik Informatika karena saya suka dengan
+                            perkembangan teknologi, bukan hanya karena itu saja karena teknologi
+                            itu semakin tahun semakin berkembang pesat jika saya tidak belajar saya
+                            akan tertinggal dengan orang" yang paham dengan dunia teknologi.
+                        </div>
                     </div>
                 </div>
 

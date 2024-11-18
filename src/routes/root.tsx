@@ -10,15 +10,15 @@ export const routerData = createBrowserRouter([
         element: <Layout />,
         children: [
             {
-                path: "/",
+                path: "",
                 element: <Home />
             },
             {
-                path: "/fitur",
+                path: "fitur",
                 element: <Feature />
             },
             {
-                path: "/game",
+                path: "game",
                 element: <Games />
             }
         ]
