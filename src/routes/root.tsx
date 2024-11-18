@@ -14,11 +14,15 @@ export const routerData = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: "fitur",
+                path: "home",
+                element: <Home />
+            },
+            {
+                path: "/wise/fitur",
                 element: <Feature />
             },
             {
-                path: "game",
+                path: "/wise/game",
                 element: <Games />
             }
         ]
