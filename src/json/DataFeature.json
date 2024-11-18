@@ -1,7 +1,7 @@
 [
     {
         "title": "Deret Fibonaci",
-        "color": "blue-500",
+        "color": "#3b82f6",
         "textColor": "text-blue-100",
         "description": "Deret Fibonacci merupakan rangkaian bilangan yang memiliki pola unik dan istimewa dalam matematika...",
         "background_img": "illustration-6.png",
@@ -9,7 +9,7 @@
     },
     {
         "title": "Deret Prima",
-        "color": "purple-500",
+        "color": "#a855f7",
         "textColor": "text-purple-100",
         "description": "Deret Prima adalah rangkaian bilangan istimewa yang hanya memiliki dua faktor pembagi: angka 1 dan...",
         "background_img": "illustration-6.png",
@@ -17,7 +17,7 @@
     },
     {
         "title": "Deret Ganjil Genap",
-        "color": "green-500",
+        "color": "#22c55e",
         "textColor": "text-green-100",
         "description": "Deret Ganjil Genap merupakan konsep fundamental dalam matematika yang membagi bilangan bulat...",
         "background_img": "illustration-6.png",
@@ -25,7 +25,7 @@
     },
     {
         "title": "Deret Geometri",
-        "color": "red-500",
+        "color": "#ef4444",
         "textColor": "text-red-100",
         "description": "Deret Geometri adalah suatu rangkaian bilangan di mana setiap suku berikutnya diperoleh dengan...",
         "background_img": "Illustration-2.png",
@@ -33,7 +33,7 @@
     },
     {
         "title": "Deret Kuadrat",
-        "color": "orange-500",
+        "color": "#f97316",
         "textColor": "text-red-100",
         "description": "Deret Kuadrat menampilkan urutan bilangan yang dihasilkan dari mengkuadratkan bilangan asli...",
         "background_img": "Illustration-2.png",
@@ -41,7 +41,7 @@
     },
     {
         "title": "Deret Kubik",
-        "color": "pink-500",
+        "color": "#ec4899",
         "textColor": "text-red-100",
         "description": "Deret Kubik merupakan rangkaian bilangan hasil pemangkatan tiga dari bilangan asli, membentuk...",
         "background_img": "Illustration-2.png",
@@ -49,7 +49,7 @@
     },
     {
         "title": "Menghitung Persegi",
-        "color": "orange-500",
+        "color": "#f43f5e",
         "textColor": "text-red-100",
         "description": "Modul ini memungkinkan pengguna untuk menghitung luas dan keliling persegi. Pengguna dapat...",
         "background_img": "illustration-10.png",
@@ -57,7 +57,7 @@
     },
     {
         "title": "Menghitung Persegi Panjang",
-        "color": "blue-500",
+        "color": "#d946ef",
         "textColor": "text-red-100",
         "description": "Modul ini berfokus pada perhitungan luas dan keliling persegi panjang. Pengguna memasukkan...",
         "background_img": "illustration-11.png",
@@ -65,7 +65,7 @@
     },
     {
         "title": "Menghitung Segitiga",
-        "color": "lime-500",
+        "color": "#84cc16",
         "textColor": "text-red-100",
         "description": "Modul ini memungkinkan pengguna untuk menghitung luas dan sisi-sisi segitiga. Dengan...",
         "background_img": "illustration-9.png",
@@ -73,7 +73,7 @@
     },
     {
         "title": "Menghitung Tabung",
-        "color": "green-500",
+        "color": "#14b8a6",
         "textColor": "text-red-100",
         "description": "Modul ini berfokus pada perhitungan luas permukaan dan volume tabung. Pengguna dapat...",
         "background_img": "illustration-14.png",
@@ -81,7 +81,7 @@
     },
     {
         "title": "Menghitung Kubus",
-        "color": "lime-500",
+        "color": "#6366f1",
         "textColor": "text-red-100",
         "description": "Modul ini memungkinkan pengguna untuk menemukan luas permukaan dan volume kubus. Dengan...",
         "background_img": "illustration-12.png",
@@ -89,7 +89,7 @@
     },
     {
         "title": "Menghitung Limas Segitiga",
-        "color": "pink-500",
+        "color": "#2dd4bf",
         "textColor": "text-red-100",
         "description": "Modul ini berfokus pada piramida segitiga, yang juga disebut limas segitiga. Pengguna dapat...",
         "background_img": "illustration-17.png",

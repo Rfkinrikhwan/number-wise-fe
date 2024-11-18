@@ -3,7 +3,7 @@ import 'aos/dist/aos.css'
 
 AOS.init({
   once: true,
-  duration: 1000,
+  duration: 500,
 })
 
 import { StrictMode } from 'react'

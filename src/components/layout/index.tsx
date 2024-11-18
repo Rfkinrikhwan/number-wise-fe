@@ -2,9 +2,15 @@ import { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import SparklesText from '../ui/sparkles-text';
 import WiseIcon from '../icon';
+import { Button } from '../ui/button';
+import Sidebar from '../sidebar';
+import { AnimatePresence } from 'framer-motion';
+import NavigationLink from '../custom/NavigationLink';
+import { sideBarStore } from '@/store';
 
 export default function index() {
     const path = useLocation();
+    const { side, openSidebarFn } = sideBarStore();
     const [hasBackground, setHasBackground] = useState(false);
 
     useEffect(() => {
@@ -35,17 +41,18 @@ export default function index() {
                     <Link to="/" className="text-2xl sm:text-3xl font-bold sm:block">
                         <SparklesText text="Number Wise" className="text-2xl sm:text-4xl" />
                     </Link>
-                    <div className="hidden sm:flex gap-8">
-                        <Link to="/" className={path.pathname === "/" ? "text-white bg-wise-primary px-6 py-2 rounded-full text-lg font-bold" : "hover:text-gray-600 px-3 py-2 text-lg font-semibold"}>
-                            Home
-                        </Link>
-                        <Link to="/fitur" className={path.pathname === "/fitur" ? "text-white bg-wise-primary px-6 py-2 rounded-full text-lg font-bold" : "hover:text-gray-600 px-3 py-2 text-lg font-semibold"}>
-                            Fitur
-                        </Link>
-                        <Link to="/game" className={path.pathname === "/game" ? "text-white bg-wise-primary px-6 py-2 rounded-full text-lg font-bold" : "hover:text-gray-600 px-3 py-2 text-lg font-semibold"}>
-                            Game
-                        </Link>
+                    <div className="hidden sm:flex gap-8 transition-all duration-300">
+                        <NavigationLink path={path} to="/" textContent={'Home'} />
+                        <NavigationLink path={path} to="/fitur" textContent={'Fitur'} />
+                        <NavigationLink path={path} to="/game" textContent={'Game'} />
                     </div>
+                    <Button className='block sm:hidden bg-transparent hover:bg-transparent rounded-full text-black shadow-none' onClick={() => openSidebarFn()}>
+                        <WiseIcon iconName="HiOutlineMenuAlt3" size={30} />
+                    </Button>
+
+                    <AnimatePresence mode="wait">
+                        {side && <Sidebar />}
+                    </AnimatePresence>
                 </div>
             </nav>
 
