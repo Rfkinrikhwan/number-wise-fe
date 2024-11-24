@@ -26,8 +26,7 @@ export default function Sidebar() {
             className="h-screen bg-[#f3f2f7] fixed right-0 top-0 text-black z-[9999] w-full p-4">
             <div className="flex items-center justify-between">
                 <Link to="/" className="text-2xl sm:text-3xl font-bold sm:block">
-                    <SparklesText text="Number Wise" className="text-2xl sm:text-4xl" />
-                </Link>
+                    <SparklesText text="Number Wise" className="text-2xl sm:text-4xl" /></Link>
                 <Button className='block sm:hidden bg-transparent hover:bg-transparent rounded-full text-black shadow-none' onClick={() => openSidebarFn()}>
                     <WiseIcon iconName="HiOutlineMenuAlt3" size={30} />
                 </Button>

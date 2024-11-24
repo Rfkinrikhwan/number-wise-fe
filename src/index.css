@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -69,4 +71,15 @@
 
 * {
   scroll-behavior: smooth;
+  font-family: "Quicksand", sans-serif;
+}
+
+.quicksand-font {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+}
+
+.courgette {
+  font-family: "Courgette", cursive;
+  font-weight: 400;
 }

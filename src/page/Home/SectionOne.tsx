@@ -1,27 +1,67 @@
-import ShinyButton from '@/components/ui/shiny-button';
-import { useNavigate } from 'react-router-dom';
+import WiseIcon from '@/components/icon';
+import { Button } from '@/components/ui/button';
 
 export default function SectionOne() {
-    const navigate = useNavigate();
 
     return (
-        <section className="flex flex-col-reverse items-center justify-center gap-10 px-4 py-16 sm:h-[90vh] sm:flex-row sm:px-12 md:px-24 lg:px-48">
-            <div className="max-w-xl">
-                <p className="text-3xl font-bold sm:text-[3.5rem] sm:leading-[4.5rem]">
-                    Fibonacci, Prima, Geometri Semua <span className="text-wise-primary">Siap Dihitung!</span>
-                </p>
+        <section className="flex flex-col items-center justify-center gap-10 px-4 py-16 h-[95vh] sm:px-12 md:px-24 lg:px-48 border-b border-slate-200">
+            {/* Background decorative elements */}
+            {/* <div className="absolute left-10 top-20 w-32 h-32 opacity-10">
+                <div className="w-full h-full border-2 border-purple-300 rounded-full animate-spin-slow"></div>
+            </div> */}
 
-                <h2 className="mt-2 text-base sm:mt-[0.5rem] sm:text-lg">
-                    Hitung Semua Jenis Bilangan dan Geometri{" "}
-                    <span className="text-wise-primary">dengan Cepat!</span>
-                </h2>
-
-                <ShinyButton onClick={() => navigate("/fitur")} className="bg-wise-primary px-10 py-4 mt-8 rounded-full font-bold text-xl !text-white">
-                    Jelajahi Fitur
-                </ShinyButton>
+            {/* Left kid image */}
+            <div className="absolute left-32 top-20">
+                <img
+                    src="25.png"
+                    alt="Kid playing"
+                    className="transform -rotate-12 w-80 h-80"
+                />
             </div>
 
-            <img className="rounded-xl" src="HeroImage.webp" alt="" data-aos="zoom-in-up" />
+            {/* Right kid image */}
+            <div className="absolute right-32 bottom-32">
+                <img
+                    src="27.png"
+                    alt="Kid learning"
+                    className="rounded-full transform rotate-12 w-80 h-80"
+                />
+            </div>
+
+            {/* Main heading */}
+            <div className='flex flex-col items-center'>
+                <h1 className="text-4xl md:text-8xl text-gray-900 mb-6 quicksand-font leading-none">
+                    The best place to
+                </h1>
+
+                <h1 className="text-4xl md:text-8xl text-gray-900 mb-6 quicksand-font">
+                    <span className="text-purple-600 courgette">learn</span> and{' '}
+                    <span className="text-yellow-400 courgette">play</span>
+                </h1>
+
+                <h1 className="text-4xl md:text-8xl text-gray-900 mb-6 quicksand-font">
+                    for kids
+                </h1>
+            </div>
+
+            {/* Subtitle */}
+            <p className="max-w-xl text-lg md:text-xl text-gray-600 text-center">
+                Discover thousands of fun and interactive learning activities
+                to support your child's growth and learning process.
+            </p>
+
+            {/* Button */}
+            <div className=' flex justify-between items-center gap-3 bg-wise-primary px-3 py-2 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 hover:-translate-y-0.5 cursor-pointer'>
+                <p className='text-white font-semibold'>Get Started</p>
+                <Button className='rounded-full w-8 h-8 bg-white text-wise-primary hover:bg-white shadow-md'>
+                    <WiseIcon iconName="GoArrowUpRight" />
+                </Button>
+            </div>
+
+            {/* Bottom right decorative element */}
+            <div className="absolute right-10 bottom-20 w-20 h-20 opacity-10">
+                <div className="w-full h-full border-2 border-purple-300 rounded-full"></div>
+            </div>
         </section>
     )
 }

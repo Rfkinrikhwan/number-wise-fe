@@ -10,6 +10,7 @@ import * as TbReactIcons from "react-icons/tb";
 import * as SiReactIcons from "react-icons/si";
 import * as FaReactIcons from "react-icons/fa";
 import * as Fa6ReactIcons from "react-icons/fa6";
+import * as GoReactIcons from "react-icons/go";
 
 
 import { createElement } from "react";
@@ -25,6 +26,7 @@ const DisplayIcons = (iconName: string): IconType => {
     const faIcons: { [key: string]: IconType } = FaReactIcons;
     const fa6Icons: { [key: string]: IconType } = Fa6ReactIcons;
     const hi2Icons: { [key: string]: IconType } = HiReactIcons2;
+    const goIcons: { [key: string]: IconType } = GoReactIcons;
 
     if (iconName.startsWith("Ai")) {
         return aiIcons[iconName];
@@ -55,6 +57,9 @@ const DisplayIcons = (iconName: string): IconType => {
     }
     if (iconName.startsWith("Hi2")) {
         return hi2Icons[iconName];
+    }
+    if (iconName.startsWith("Go")) {
+        return goIcons[iconName];
     }
     throw new Error(`Unknown icon name: ${iconName}`);
 };

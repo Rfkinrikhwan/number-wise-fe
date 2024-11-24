@@ -1,60 +1,12 @@
-import { useEffect, useState } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom'
-import SparklesText from '../ui/sparkles-text';
+import { Outlet } from 'react-router-dom';
+import Navbar from './Navbar';
 import WiseIcon from '../icon';
-import { Button } from '../ui/button';
-import Sidebar from '../sidebar';
-import { AnimatePresence } from 'framer-motion';
-import NavigationLink from '../custom/NavigationLink';
-import { sideBarStore } from '@/store';
 
 export default function index() {
-    const path = useLocation();
-    const { side, openSidebarFn } = sideBarStore();
-    const [hasBackground, setHasBackground] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            if (scrollPosition > 50) {
-                setHasBackground(true);
-            } else {
-                setHasBackground(false);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
 
     return (
         <>
-            <nav
-                className={`${hasBackground ? 'shadow-md bg-white' : 'border-b'
-                    } sticky top-0 w-full transition-all duration-300 z-50 py-3 px-4 sm:px-12 md:px-24 lg:px-48`}
-            >
-                <div className="h-14 flex items-center justify-between">
-                    <Link to="/" className="text-2xl sm:text-3xl font-bold sm:block">
-                        <SparklesText text="Number Wise" className="text-2xl sm:text-4xl" />
-                    </Link>
-                    <div className="hidden sm:flex gap-8 transition-all duration-300">
-                        <NavigationLink path={path} to="/" textContent={'Home'} />
-                        <NavigationLink path={path} to="/fitur" textContent={'Fitur'} />
-                        <NavigationLink path={path} to="/game" textContent={'Game'} />
-                    </div>
-                    <Button className='block sm:hidden bg-transparent hover:bg-transparent rounded-full text-black shadow-none' onClick={() => openSidebarFn()}>
-                        <WiseIcon iconName="HiOutlineMenuAlt3" size={30} />
-                    </Button>
-
-                    <AnimatePresence mode="wait">
-                        {side && <Sidebar />}
-                    </AnimatePresence>
-                </div>
-            </nav>
+            <Navbar />
 
             <div>
                 <Outlet />

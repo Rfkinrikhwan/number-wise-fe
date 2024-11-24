@@ -2,6 +2,7 @@ import SectionOne from './SectionOne';
 import SectionTwo from './SectionTwo';
 import SectionThree from './SectionThree';
 import { useEffect } from 'react';
+import SectionFour from './SectionFour';
 
 export default function Index() {
 
@@ -16,6 +17,8 @@ export default function Index() {
             <SectionTwo />
 
             <SectionThree />
+
+            <SectionFour />
         </>
     )
 }

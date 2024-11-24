@@ -18,7 +18,7 @@ export const routerData = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: "/fitur",
+                path: "/features",
                 element: <Feature />
             },
             {
