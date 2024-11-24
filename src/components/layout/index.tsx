@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import WiseIcon from '../icon';
 
@@ -34,6 +34,10 @@ export default function index() {
                             </a>
                         </div>
                     </div>
+
+                    <Link to="/about-wise" className='text-xl font-semibold hover:text-wise-secondary transition-colors'>
+                        About Wise
+                    </Link>
 
                     <div className="mt-8 text-white text-sm">
                         &copy; {new Date().getFullYear()} Number Wise. All rights reserved.

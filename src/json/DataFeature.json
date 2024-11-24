@@ -1,97 +1,97 @@
 [
     {
-        "title": "Deret Fibonaci",
+        "title": "Fibonacci Sequence",
         "color": "#3b82f6",
         "textColor": "text-blue-100",
-        "description": "Deret Fibonacci merupakan rangkaian bilangan yang memiliki pola unik dan istimewa dalam matematika...",
+        "description": "The Fibonacci Sequence is a series of numbers with a unique and special pattern in mathematics...",
         "background_img": "illustration-6.png",
         "link": "/fibonacci"
     },
     {
-        "title": "Deret Prima",
+        "title": "Prime Sequence",
         "color": "#a855f7",
         "textColor": "text-purple-100",
-        "description": "Deret Prima adalah rangkaian bilangan istimewa yang hanya memiliki dua faktor pembagi: angka 1 dan...",
+        "description": "The Prime Sequence is a series of special numbers that have exactly two divisors: 1 and...",
         "background_img": "illustration-6.png",
         "link": "/prima"
     },
     {
-        "title": "Deret Ganjil Genap",
+        "title": "Odd-Even Sequence",
         "color": "#22c55e",
         "textColor": "text-green-100",
-        "description": "Deret Ganjil Genap merupakan konsep fundamental dalam matematika yang membagi bilangan bulat...",
+        "description": "The Odd-Even Sequence is a fundamental concept in mathematics that divides integers...",
         "background_img": "illustration-6.png",
         "link": "/ganjil-genap"
     },
     {
-        "title": "Deret Geometri",
+        "title": "Geometric Sequence",
         "color": "#ef4444",
         "textColor": "text-red-100",
-        "description": "Deret Geometri adalah suatu rangkaian bilangan di mana setiap suku berikutnya diperoleh dengan...",
+        "description": "The Geometric Sequence is a series of numbers where each term is obtained by...",
         "background_img": "Illustration-2.png",
         "link": "/geometri"
     },
     {
-        "title": "Deret Kuadrat",
+        "title": "Square Sequence",
         "color": "#f97316",
         "textColor": "text-red-100",
-        "description": "Deret Kuadrat menampilkan urutan bilangan yang dihasilkan dari mengkuadratkan bilangan asli...",
+        "description": "The Square Sequence shows a series of numbers obtained by squaring natural numbers...",
         "background_img": "Illustration-2.png",
         "link": "/kuadrat"
     },
     {
-        "title": "Deret Kubik",
+        "title": "Cubic Sequence",
         "color": "#ec4899",
         "textColor": "text-red-100",
-        "description": "Deret Kubik merupakan rangkaian bilangan hasil pemangkatan tiga dari bilangan asli, membentuk...",
+        "description": "The Cubic Sequence is a series of numbers derived from raising natural numbers to the power of three, forming...",
         "background_img": "Illustration-2.png",
         "link": "/kubik"
     },
     {
-        "title": "Menghitung Persegi",
+        "title": "Calculate Square",
         "color": "#f43f5e",
         "textColor": "text-red-100",
-        "description": "Modul ini memungkinkan pengguna untuk menghitung luas dan keliling persegi. Pengguna dapat...",
+        "description": "This module allows users to calculate the area and perimeter of a square. Users can...",
         "background_img": "illustration-10.png",
         "link": "/persegi"
     },
     {
-        "title": "Menghitung Persegi Panjang",
+        "title": "Calculate Rectangle",
         "color": "#d946ef",
         "textColor": "text-red-100",
-        "description": "Modul ini berfokus pada perhitungan luas dan keliling persegi panjang. Pengguna memasukkan...",
+        "description": "This module focuses on calculating the area and perimeter of a rectangle. Users input...",
         "background_img": "illustration-11.png",
         "link": "/persegi-panjang"
     },
     {
-        "title": "Menghitung Segitiga",
+        "title": "Calculate Triangle",
         "color": "#84cc16",
         "textColor": "text-red-100",
-        "description": "Modul ini memungkinkan pengguna untuk menghitung luas dan sisi-sisi segitiga. Dengan...",
+        "description": "This module allows users to calculate the area and sides of a triangle. With...",
         "background_img": "illustration-9.png",
         "link": "/segitiga"
     },
     {
-        "title": "Menghitung Tabung",
+        "title": "Calculate Cylinder",
         "color": "#14b8a6",
         "textColor": "text-red-100",
-        "description": "Modul ini berfokus pada perhitungan luas permukaan dan volume tabung. Pengguna dapat...",
+        "description": "This module focuses on calculating the surface area and volume of a cylinder. Users can...",
         "background_img": "illustration-14.png",
         "link": "/tabung"
     },
     {
-        "title": "Menghitung Kubus",
+        "title": "Calculate Cube",
         "color": "#6366f1",
         "textColor": "text-red-100",
-        "description": "Modul ini memungkinkan pengguna untuk menemukan luas permukaan dan volume kubus. Dengan...",
+        "description": "This module allows users to calculate the surface area and volume of a cube. With...",
         "background_img": "illustration-12.png",
         "link": "/kubus"
     },
     {
-        "title": "Menghitung Limas Segitiga",
+        "title": "Calculate Triangular Pyramid",
         "color": "#2dd4bf",
         "textColor": "text-red-100",
-        "description": "Modul ini berfokus pada piramida segitiga, yang juga disebut limas segitiga. Pengguna dapat...",
+        "description": "This module focuses on the triangular pyramid, also known as a triangular prism. Users can...",
         "background_img": "illustration-17.png",
         "link": "/limas-segitiga"
     }

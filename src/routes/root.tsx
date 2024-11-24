@@ -3,6 +3,12 @@ import Layout from "../components/layout";
 import Home from "@/page/Home/Index";
 import Feature from "@/page/Feature";
 import Games from "@/page/Game";
+import Blog from "@/page/Blog";
+import Courses from "@/page/Courses";
+import Quiz from "@/page/Quiz";
+import DetailBlog from "@/page/Blog/Detail";
+import Custom404 from "@/components/custom/404";
+import About from "@/page/About";
 
 export const routerData = createBrowserRouter([
     {
@@ -22,14 +28,38 @@ export const routerData = createBrowserRouter([
                 element: <Feature />
             },
             {
+                path: "/features/:id",
+                element: <Feature />
+            },
+            {
                 path: "/game",
                 element: <Games />
-            }
+            },
+            {
+                path: "/blog",
+                element: <Blog />
+            },
+            {
+                path: "/blog/:id",
+                element: <DetailBlog />
+            },
+            {
+                path: "/courses",
+                element: <Courses />
+            },
+            {
+                path: "/quiz",
+                element: <Quiz />
+            },
         ]
     },
     {
+        path: "/about-wise",
+        element: <About />
+    },
+    {
         path: "*",
-        // element: <PageNotFound />,
+        element: <Custom404 />,
     }
 ]);
 

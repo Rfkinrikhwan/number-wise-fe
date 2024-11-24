@@ -1,8 +1,4 @@
 import WiseIcon from "@/components/icon";
-import SparklesText from "@/components/ui/sparkles-text";
-import { Link } from "react-router-dom";
-import cardData from "@/json/DataCard.json"
-import CardFeature from "@/components/custom/CardFeature";
 import { Button } from "@/components/ui/button";
 
 export default function SectionThree() {
@@ -10,14 +6,14 @@ export default function SectionThree() {
     return (
         <section className="flex flex-col lg:flex-row items-center px-4 py-16 min-h-screen sm:px-12 md:px-24 lg:px-48 border-b border-slate-200">
             {/* Left content */}
-            <div className="w-full">
+            <div className="w-full order-2">
                 {/* Main heading */}
                 <div className='flex flex-col'>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-4 quicksand-font leading-tight">
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl text-gray-900 mb-4 quicksand-font leading-tight">
                         The learning materials
                     </h1>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-4 quicksand-font leading-tight">
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl text-gray-900 mb-4 quicksand-font leading-tight">
                         provided are{' '}
                         <span className="relative inline-block courgette text-wise-primary">
                             enjoyable
@@ -26,7 +22,7 @@ export default function SectionThree() {
                         </span>
                     </h1>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-8 quicksand-font leading-tight">
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl text-gray-900 mb-6 quicksand-font leading-tight">
                         for children
                     </h1>
                 </div>
@@ -46,11 +42,11 @@ export default function SectionThree() {
             </div>
 
             {/* Right content - Image */}
-            <div className="w-1/2">
+            <div className="w-full sm:w-3/4 lg:w-1/2 order-1 lg:order-2 flex justify-center items-center">
                 <img
                     src="28.png"
                     alt="Learning child 1"
-                    className="w-full h-auto object-cover rounded-xl"
+                    className="w-full max-w-md lg:max-w-none lg:scale-125 transition-transform sm:relative sm:right-14"
                 />
             </div>
         </section>

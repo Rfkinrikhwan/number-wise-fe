@@ -31,26 +31,26 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={`${hasBackground ? 'shadow bg-white' : ''
-            } sticky top-0 w-full transition-all duration-300 z-50 py-2`}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className={`${hasBackground ? 'shadow bg-white' : 'border-b border-slate-200'} sticky top-0 w-full transition-all duration-300 z-50 py-2`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-12 lg:px-6">
                 <div className="flex justify-between h-16 items-center">
                     {/* Logo and brand */}
                     <div className="flex items-center">
                         <Link to="/" className="flex-shrink-0">
                             <div className="flex items-center">
-                                <img src="logos.png" alt="" className="w-16" />
+                                <img src="wise-lg-primary.png" alt="" className="w-14" />
+                                <h1 className='text-wise-primary font-bold text-2xl'>Number Wise</h1>
                             </div>
                         </Link>
                     </div>
 
                     {/* Desktop menu */}
-                    <div className="hidden md:flex items-center space-x-8">
+                    <div className="hidden md:flex items-center space-x-3">
                         <NavigationLink path={path} to="/" textContent={'Home'} />
                         <NavigationLink path={path} to="/features" textContent={'Features'} />
-                        <NavigationLink path={path} to="/game" textContent={'Game'} />
-                        <NavigationLink path={path} to="/blog" textContent={'Blog'} />
                         <NavigationLink path={path} to="/courses" textContent={'Courses'} />
+                        <NavigationLink path={path} to="/blog" textContent={'Blog'} />
+                        <NavigationLink path={path} to="/game" textContent={'Game'} />
                     </div>
 
                     <div className='hidden md:flex items-center space-x-8'>

@@ -21,14 +21,16 @@ export default function NavigationLink({ path, to, textContent, additional }: Pr
         }
     }
 
+    if (additional === "sideNav") {
+        return (
+            <Link to={to} onClick={() => clickFunction()} className={`${path.pathname === to ? "borderfont-bold border-wise-primary bg-wise-primary text-white" : "hover:text-gray-600 font-semibold"} transition-colors duration-300 py-2 px-3 rounded-full`}>
+                {textContent}
+            </Link>
+        )
+    }
+
     return (
-        <Link to={to} onClick={() => clickFunction()} className={`
-        ${path.pathname === to
-                ? "text-wise-primary border-b-2 border-wise-primary py-1 text-lg font-bold"
-                : "hover:text-gray-600 py-1 text-lg font-semibold"
-            }
-        transition-colors duration-300
-    `}>
+        <Link to={to} onClick={() => clickFunction()} className={`${path.pathname === to ? "border text-wise-primary font-bold border-wise-primary" : "hover:text-gray-600 font-semibold"} transition-colors duration-300 py-1 w-24 text-center rounded-full`}>
             {textContent}
         </Link>
     )

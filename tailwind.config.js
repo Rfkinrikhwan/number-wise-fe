@@ -20,6 +20,7 @@ export default {
           primary: "#704fe6",
           secondary: "#ffd25d",
           tertiary: "#dec8fe",
+          gray: "#f3f3f3",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",

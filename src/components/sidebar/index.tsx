@@ -2,7 +2,6 @@ import { sideBarStore } from "@/store";
 import Curve from "../curve";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import SparklesText from "../ui/sparkles-text";
 import { Button } from "../ui/button";
 import WiseIcon from "../icon";
 import NavigationLink from "../custom/NavigationLink";
@@ -25,16 +24,24 @@ export default function Sidebar() {
             exit="exit"
             className="h-screen bg-[#f3f2f7] fixed right-0 top-0 text-black z-[9999] w-full p-4">
             <div className="flex items-center justify-between">
-                <Link to="/" className="text-2xl sm:text-3xl font-bold sm:block">
-                    <SparklesText text="Number Wise" className="text-2xl sm:text-4xl" /></Link>
+                <div className="flex items-center">
+                    <Link to="/" className="flex-shrink-0">
+                        <div className="flex items-center">
+                            <img src="wise-lg-primary.png" alt="" className="w-14" />
+                            <h1 className='text-wise-primary font-bold text-2xl'>Number Wise</h1>
+                        </div>
+                    </Link>
+                </div>
                 <Button className='block sm:hidden bg-transparent hover:bg-transparent rounded-full text-black shadow-none' onClick={() => openSidebarFn()}>
                     <WiseIcon iconName="HiOutlineMenuAlt3" size={30} />
                 </Button>
             </div>
 
-            <div className="flex flex-col gap-8 transition-all duration-300 mt-8">
+            <div className="flex flex-col gap-2 transition-all duration-300 mt-8">
                 <NavigationLink path={path} to="/" additional="sideNav" textContent={'Home'} />
-                <NavigationLink path={path} to="/fitur" additional="sideNav" textContent={'Fitur'} />
+                <NavigationLink path={path} to="/features" additional="sideNav" textContent={'Features'} />
+                <NavigationLink path={path} to="/courses" additional="sideNav" textContent={'Courses'} />
+                <NavigationLink path={path} to="/blog" additional="sideNav" textContent={'Blog'} />
                 <NavigationLink path={path} to="/game" additional="sideNav" textContent={'Game'} />
             </div>
 
