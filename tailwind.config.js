@@ -18,9 +18,10 @@ export default {
         },
         wise: {
           primary: "#704fe6",
-          secondary: "#ffd25d",
+          secondary: "#facc15",
           tertiary: "#dec8fe",
           gray: "#f3f3f3",
+          dark: "#1E1E1E",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",

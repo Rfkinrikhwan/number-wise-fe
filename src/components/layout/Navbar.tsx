@@ -7,8 +7,10 @@ import { sideBarStore } from '@/store';
 import NavigationLink from '../custom/NavigationLink';
 import { AnimatePresence } from 'framer-motion';
 import Sidebar from '../sidebar';
+import { changeThemeStore } from '@/store';
 
 const Navbar = () => {
+    const { theme } = changeThemeStore();
     const path = useLocation();
     const { side, openSidebarFn } = sideBarStore();
     const [hasBackground, setHasBackground] = useState(false);
@@ -31,33 +33,33 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={`${hasBackground ? 'shadow bg-white' : 'border-b border-slate-200'} sticky top-0 w-full transition-all duration-300 z-50 py-2`}>
+        <nav className={`${hasBackground ? 'shadow' : 'border-b border-slate-200'} ${theme === 'dark' ? 'bg-wise-dark' : 'bg-white'} sticky top-0 w-full transition-all duration-300 z-50 py-2`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-12 lg:px-6">
                 <div className="flex justify-between h-16 items-center">
                     {/* Logo and brand */}
                     <div className="flex items-center">
                         <Link to="/" className="flex-shrink-0">
                             <div className="flex items-center">
-                                <img src="wise-lg-primary.png" alt="" className="w-14" />
-                                <h1 className='text-wise-primary font-bold text-2xl'>Number Wise</h1>
+                                <img src={theme === 'dark' ? "wise-lg-secondary.png" : "wise-lg-primary.png"} alt="" className="w-14" />
+                                <h1 className={`${theme === 'dark' ? "text-wise-secondary" : "text-wise-primary"} font-bold text-2xl`}>Number Wise</h1>
                             </div>
                         </Link>
                     </div>
 
                     {/* Desktop menu */}
                     <div className="hidden md:flex items-center space-x-3">
-                        <NavigationLink path={path} to="/" textContent={'Home'} />
-                        <NavigationLink path={path} to="/features" textContent={'Features'} />
-                        <NavigationLink path={path} to="/courses" textContent={'Courses'} />
-                        <NavigationLink path={path} to="/blog" textContent={'Blog'} />
-                        <NavigationLink path={path} to="/game" textContent={'Game'} />
+                        <NavigationLink theme={theme} path={path} to="/" textContent={'Home'} />
+                        <NavigationLink theme={theme} path={path} to="/features" textContent={'Features'} />
+                        <NavigationLink theme={theme} path={path} to="/courses" textContent={'Courses'} />
+                        <NavigationLink theme={theme} path={path} to="/blog" textContent={'Blog'} />
+                        <NavigationLink theme={theme} path={path} to="/game" textContent={'Game'} />
                     </div>
 
                     <div className='hidden md:flex items-center space-x-8'>
-                        <Link to="/signin" className="text-gray-600 hover:text-gray-900">Sign In</Link>
-                        <div className='flex justify-end items-center gap-3 border w-32 border-wise-primary px-1 py-1  rounded-full'>
-                            <p className='text-wise-primary font-semibold'>Sign Up</p>
-                            <Button className='rounded-full w-8 h-8 bg-wise-primary text-white hover:bg-transparent'>
+                        <Link to="/signin" className={`font-semibold ${theme === 'dark' ? "text-white hover:text-gray-600" : "text-gray-600 hover:text-gray-900"}`}>Sign In</Link>
+                        <div className={`flex justify-end items-center gap-3 border w-32 ${theme === 'dark' ? "border-wise-secondary" : "border-wise-primary"} px-1 py-1  rounded-full`}>
+                            <p className={`${theme === 'dark' ? "text-white" : ""} font-semibold`}>Sign Up</p>
+                            <Button className={`rounded-full w-8 h-8 ${theme === 'dark' ? "bg-wise-secondary" : "bg-wise-primary"} text-white hover:bg-transparent`}>
                                 <WiseIcon iconName="GoArrowUpRight" />
                             </Button>
                         </div>

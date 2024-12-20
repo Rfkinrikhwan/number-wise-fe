@@ -17,16 +17,20 @@ type ThemeTypeFn = {
     changeThemeFn: () => void;
 };
 
-export const changeThemeStore = create<ThemeTypeFn>((set) => {
+export const changeThemeStore = create<ThemeTypeFn>((set, get) => {
+    // Ambil tema awal dari localStorage
     const storedTheme = localStorage.getItem("theme");
     const initialTheme = storedTheme ? storedTheme : "light";
+
+    console.log("initialTheme", initialTheme);
 
     return {
         theme: initialTheme,
         changeThemeFn: () => {
-            const newTheme = initialTheme === "light" ? "dark" : "light";
-            localStorage.setItem("theme", newTheme);
-            set({ theme: newTheme });
+            const currentTheme = get().theme; // Ambil nilai tema terkini dari store
+            const newTheme = currentTheme === "light" ? "dark" : "light";
+            localStorage.setItem("theme", newTheme); // Simpan tema baru di localStorage
+            set({ theme: newTheme }); // Perbarui state dengan tema baru
         },
     };
 });

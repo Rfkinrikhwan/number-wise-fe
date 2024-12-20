@@ -2,15 +2,18 @@ import WiseIcon from "@/components/icon";
 import { Link } from "react-router-dom";
 import DataBlog from "@/json/DataBlog.json"
 import { useEffect } from "react";
+import { changeThemeStore } from "@/store";
 
 
 export default function Blog() {
+    const { theme } = changeThemeStore();
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
     return (
-        <section className="flex flex-col gap-10 relative sm:px-12 md:px-24 lg:px-48 px-4 py-8 min-h-screen border-b border-slate-200">
+        <section className={`${theme === 'dark' ? 'bg-wise-dark' : ''} flex flex-col gap-10 relative sm:px-12 md:px-24 lg:px-48 px-4 py-8 min-h-screen border-b border-slate-200`}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                 {DataBlog.map((card, index) => (
                     <div
@@ -30,9 +33,9 @@ export default function Blog() {
 
                             <p className="text-gray-600 mt-2">{card.description}</p>
 
-                            <Link to={`3`} className='flex justify-start items-center gap-3 w-max mt-5'>
-                                <p className='text-wise-primary font-semibold'>Read More</p>
-                                <div className='flex justify-center items-center rounded-full w-8 h-8 bg-wise-primary text-white hover:bg-wise-primary/90 transition-colors'>
+                            <Link to={`/blog/3`} className={`flex justify-start items-center gap-3 w-max mt-5 ${theme === 'dark' ? 'text-wise-secondary' : 'text-wise-primary'}`}>
+                                <p className='font-semibold'>Read More</p>
+                                <div className={`flex justify-center items-center rounded-full w-8 h-8 ${theme === 'dark' ? 'bg-wise-secondary' : 'bg-wise-primary'} text-white hover:bg-wise-primary/90 transition-colors`}>
                                     <WiseIcon iconName="GoArrowUpRight" />
                                 </div>
                             </Link>

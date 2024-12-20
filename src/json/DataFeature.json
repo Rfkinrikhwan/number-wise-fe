@@ -1,98 +1,100 @@
 [
     {
-        "title": "Fibonacci Sequence",
-        "color": "#3b82f6",
-        "textColor": "text-blue-100",
-        "description": "The Fibonacci Sequence is a series of numbers with a unique and special pattern in mathematics...",
-        "background_img": "illustration-6.png",
-        "link": "/fibonacci"
+        "section_name": "Sequence",
+        "description": "",
+        "child_item": [
+            {
+                "title": "Fibonacci Sequence",
+                "color": "#3b82f6",
+                "textColor": "text-blue-100",
+                "description": "The Fibonacci Sequence is a series of numbers with a unique and special pattern in mathematics...",
+                "background_img": "illustration-6.png",
+                "link": "/fibonacci"
+            },
+            {
+                "title": "Prime Sequence",
+                "color": "#a855f7",
+                "textColor": "text-purple-100",
+                "description": "The Prime Sequence is a series of special numbers that have exactly two divisors: 1 and...",
+                "background_img": "illustration-6.png",
+                "link": "/prima"
+            },
+            {
+                "title": "Odd-Even Sequence",
+                "color": "#22c55e",
+                "textColor": "text-green-100",
+                "description": "The Odd-Even Sequence is a fundamental concept in mathematics that divides integers...",
+                "background_img": "illustration-6.png",
+                "link": "/ganjil-genap"
+            },
+            {
+                "title": "Geometric Sequence",
+                "color": "#ef4444",
+                "textColor": "text-red-100",
+                "description": "The Geometric Sequence is a series of numbers where each term is obtained by...",
+                "background_img": "Illustration-2.png",
+                "link": "/geometri"
+            },
+            {
+                "title": "Square Sequence",
+                "color": "#f97316",
+                "textColor": "text-red-100",
+                "description": "The Square Sequence shows a series of numbers obtained by squaring natural numbers...",
+                "background_img": "Illustration-2.png",
+                "link": "/kuadrat"
+            },
+            {
+                "title": "Cubic Sequence",
+                "color": "#ec4899",
+                "textColor": "text-red-100",
+                "description": "The Cubic Sequence is a series of numbers derived from raising natural numbers to the power of three, forming...",
+                "background_img": "Illustration-2.png",
+                "link": "/kubik"
+            }
+        ]
     },
     {
-        "title": "Prime Sequence",
-        "color": "#a855f7",
-        "textColor": "text-purple-100",
-        "description": "The Prime Sequence is a series of special numbers that have exactly two divisors: 1 and...",
-        "background_img": "illustration-6.png",
-        "link": "/prima"
+        "section_name": "Conversion Calculator",
+        "description": "",
+        "child_item": [
+            {
+                "title": "Fibonacci Sequence",
+                "color": "#3b82f6",
+                "textColor": "text-blue-100",
+                "description": "The Fibonacci Sequence is a series of numbers with a unique and special pattern in mathematics...",
+                "background_img": "illustration-6.png",
+                "link": "/fibonacci"
+            },
+            {
+                "title": "Prime Sequence",
+                "color": "#a855f7",
+                "textColor": "text-purple-100",
+                "description": "The Prime Sequence is a series of special numbers that have exactly two divisors: 1 and...",
+                "background_img": "illustration-6.png",
+                "link": "/prima"
+            },
+            {
+                "title": "Odd-Even Sequence",
+                "color": "#22c55e",
+                "textColor": "text-green-100",
+                "description": "The Odd-Even Sequence is a fundamental concept in mathematics that divides integers...",
+                "background_img": "illustration-6.png",
+                "link": "/ganjil-genap"
+            }
+        ]
     },
     {
-        "title": "Odd-Even Sequence",
-        "color": "#22c55e",
-        "textColor": "text-green-100",
-        "description": "The Odd-Even Sequence is a fundamental concept in mathematics that divides integers...",
-        "background_img": "illustration-6.png",
-        "link": "/ganjil-genap"
-    },
-    {
-        "title": "Geometric Sequence",
-        "color": "#ef4444",
-        "textColor": "text-red-100",
-        "description": "The Geometric Sequence is a series of numbers where each term is obtained by...",
-        "background_img": "Illustration-2.png",
-        "link": "/geometri"
-    },
-    {
-        "title": "Square Sequence",
-        "color": "#f97316",
-        "textColor": "text-red-100",
-        "description": "The Square Sequence shows a series of numbers obtained by squaring natural numbers...",
-        "background_img": "Illustration-2.png",
-        "link": "/kuadrat"
-    },
-    {
-        "title": "Cubic Sequence",
-        "color": "#ec4899",
-        "textColor": "text-red-100",
-        "description": "The Cubic Sequence is a series of numbers derived from raising natural numbers to the power of three, forming...",
-        "background_img": "Illustration-2.png",
-        "link": "/kubik"
-    },
-    {
-        "title": "Calculate Square",
-        "color": "#f43f5e",
-        "textColor": "text-red-100",
-        "description": "This module allows users to calculate the area and perimeter of a square. Users can...",
-        "background_img": "illustration-10.png",
-        "link": "/persegi"
-    },
-    {
-        "title": "Calculate Rectangle",
-        "color": "#d946ef",
-        "textColor": "text-red-100",
-        "description": "This module focuses on calculating the area and perimeter of a rectangle. Users input...",
-        "background_img": "illustration-11.png",
-        "link": "/persegi-panjang"
-    },
-    {
-        "title": "Calculate Triangle",
-        "color": "#84cc16",
-        "textColor": "text-red-100",
-        "description": "This module allows users to calculate the area and sides of a triangle. With...",
-        "background_img": "illustration-9.png",
-        "link": "/segitiga"
-    },
-    {
-        "title": "Calculate Cylinder",
-        "color": "#14b8a6",
-        "textColor": "text-red-100",
-        "description": "This module focuses on calculating the surface area and volume of a cylinder. Users can...",
-        "background_img": "illustration-14.png",
-        "link": "/tabung"
-    },
-    {
-        "title": "Calculate Cube",
-        "color": "#6366f1",
-        "textColor": "text-red-100",
-        "description": "This module allows users to calculate the surface area and volume of a cube. With...",
-        "background_img": "illustration-12.png",
-        "link": "/kubus"
-    },
-    {
-        "title": "Calculate Triangular Pyramid",
-        "color": "#2dd4bf",
-        "textColor": "text-red-100",
-        "description": "This module focuses on the triangular pyramid, also known as a triangular prism. Users can...",
-        "background_img": "illustration-17.png",
-        "link": "/limas-segitiga"
+        "section_name": "Logic Math",
+        "description": "",
+        "child_item": [
+            {
+                "title": "Truth Table",
+                "color": "#3b82f6",
+                "textColor": "text-blue-100",
+                "description": "The Fibonacci Sequence is a series of numbers with a unique and special pattern in mathematics...",
+                "background_img": "illustration-6.png",
+                "link": "/fibonacci"
+            }
+        ]
     }
 ]

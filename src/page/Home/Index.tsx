@@ -3,8 +3,10 @@ import SectionTwo from './SectionTwo';
 import SectionThree from './SectionThree';
 import { useEffect } from 'react';
 import SectionFour from './SectionFour';
+import { changeThemeStore } from '@/store';
 
 export default function Index() {
+    const { theme } = changeThemeStore();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -12,13 +14,13 @@ export default function Index() {
 
     return (
         <>
-            <SectionOne />
+            <SectionOne theme={theme} />
 
-            <SectionTwo />
+            <SectionTwo theme={theme} />
 
-            <SectionThree />
+            <SectionThree theme={theme} />
 
-            <SectionFour />
+            <SectionFour theme={theme} />
         </>
     )
 }

@@ -9,6 +9,7 @@ import Quiz from "@/page/Quiz";
 import DetailBlog from "@/page/Blog/Detail";
 import Custom404 from "@/components/custom/404";
 import About from "@/page/About";
+import TruthTable from "@/page/Feature/LogicMath/TruthTable";
 
 export const routerData = createBrowserRouter([
     {
@@ -25,11 +26,16 @@ export const routerData = createBrowserRouter([
             },
             {
                 path: "/features",
-                element: <Feature />
-            },
-            {
-                path: "/features/:id",
-                element: <Feature />
+                children: [
+                    {
+                        path: "",
+                        element: <Feature />
+                    },
+                    {
+                        path: "truth-table",
+                        element: <TruthTable />
+                    }
+                ]
             },
             {
                 path: "/game",

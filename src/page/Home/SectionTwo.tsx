@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 
-export default function SectionTwo() {
+export default function SectionTwo({ theme }: { theme: string }) {
     return (
-        <section className="flex flex-col gap-6 sm:gap-10 relative sm:px-12 md:px-24 lg:px-48 px-4 py-12 sm:py-20 min-h-screen border-b border-slate-200">
+        <section className={`${theme === 'dark' ? 'bg-wise-dark' : ''} flex flex-col gap-6 sm:gap-10 relative sm:px-12 md:px-24 lg:px-48 px-4 py-12 sm:py-20 min-h-screen border-b border-slate-200`}>
             {/* Heading */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl !font-semibold text-gray-900 quicksand-font">
-                Our <span className='text-wise-primary courgette'>interactive</span> <br className="hidden sm:block" /> features
+            <h1 className={`${theme === 'dark' ? 'text-white' : 'text-gray-900'} text-3xl sm:text-4xl lg:text-5xl !font-semibold quicksand-font`}>
+                Our <span className={`courgette ${theme === 'dark' ? 'text-wise-secondary' : 'text-wise-primary'}`}>interactive</span> <br className="hidden sm:block" /> features
             </h1>
 
             {/* Features Grid */}
