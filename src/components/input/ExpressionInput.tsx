@@ -13,7 +13,7 @@ const ExpressionInput = ({ input, setInput, openHelpModal }: ExpressionInputProp
     const { theme } = changeThemeStore();
 
     return (
-        <div className="flex h-14 w-full flex-row items-center gap-x-2 self-center md:w-4/5">
+        <div className="flex h-14 w-full flex-row items-center gap-x-2">
             <div className="relative h-full flex-1">
                 <input
                     type="text"
@@ -32,8 +32,9 @@ const ExpressionInput = ({ input, setInput, openHelpModal }: ExpressionInputProp
                         input.length === 0 && "hidden"
                     )}
                 >
-                    <TrashIcon className="h-6 w-6" />
+                    <TrashIcon className={clsx("h-6 w-6", theme === "light" ? "text-neutral-600" : "text-neutral-300")} />
                 </button>
+
                 <Tooltip
                     variant={theme === "light" ? "light" : "dark"}
                     delayShow={500}
@@ -48,7 +49,7 @@ const ExpressionInput = ({ input, setInput, openHelpModal }: ExpressionInputProp
                     }
                     className="absolute right-2 top-2 grid h-10 w-10 place-items-center rounded-lg hover:scale-105 hover:dark:bg-neutral-600/70"
                 >
-                    <CopyIcon className="h-6 w-6" />
+                    <CopyIcon className={clsx("h-6 w-6", theme === "light" ? "text-neutral-600" : "text-neutral-300")} />
                 </button>
                 {/* TODO change text of tooltip to "Copied!" if expression copied (see table heading) */}
                 <Tooltip
@@ -58,13 +59,15 @@ const ExpressionInput = ({ input, setInput, openHelpModal }: ExpressionInputProp
                     content="Copy expression"
                 />
             </div>
+
             <button
                 id="openHelpModalButton"
                 className="grid h-14 w-14 place-items-center rounded-lg border border-neutral-400 shadow-md dark:border-neutral-600 dark:bg-neutral-700/40 dark:placeholder-neutral-300 dark:hover:bg-neutral-700/80 dark:focus:border-violet-500 dark:focus:ring-violet-600"
                 onClick={openHelpModal}
             >
-                <InfoIcon className="h-7 w-7" />
+                <InfoIcon className={clsx("h-6 w-6", theme === "light" ? "text-neutral-600" : "text-neutral-300")} />
             </button>
+
             <Tooltip
                 variant={theme === "light" ? "light" : "dark"}
                 delayShow={500}

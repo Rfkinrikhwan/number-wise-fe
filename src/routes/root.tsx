@@ -10,6 +10,12 @@ import DetailBlog from "@/page/Blog/Detail";
 import Custom404 from "@/components/custom/404";
 import About from "@/page/About";
 import TruthTable from "@/page/Feature/LogicMath/TruthTable";
+import Fibonacci from "@/page/Feature/Sequence/Fibonacci";
+import Prime from "@/page/Feature/Sequence/Prime";
+import OddEven from "@/page/Feature/Sequence/OddEven";
+import Geometric from "@/page/Feature/Sequence/Geometric";
+import Square from "@/page/Feature/Sequence/Square";
+import Cubic from "@/page/Feature/Sequence/Cubic";
 
 export const routerData = createBrowserRouter([
     {
@@ -34,7 +40,31 @@ export const routerData = createBrowserRouter([
                     {
                         path: "truth-table",
                         element: <TruthTable />
-                    }
+                    },
+                    {
+                        path: "fibonacci",
+                        element: <Fibonacci />
+                    },
+                    {
+                        path: "prime",
+                        element: <Prime />
+                    },
+                    {
+                        path: "odd-even",
+                        element: <OddEven />
+                    },
+                    {
+                        path: "geometric",
+                        element: <Geometric />
+                    },
+                    {
+                        path: "square",
+                        element: <Square />
+                    },
+                    {
+                        path: "cubic",
+                        element: <Cubic />
+                    },
                 ]
             },
             {

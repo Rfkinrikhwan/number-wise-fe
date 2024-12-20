@@ -9,6 +9,10 @@ import { AnimatePresence } from 'framer-motion';
 import Sidebar from '../sidebar';
 import { changeThemeStore } from '@/store';
 
+// Logo
+import WisePrimary from '../../../public/wise-lg-primary.png';
+import WiseSecondary from '../../../public/wise-lg-secondary.png';
+
 const Navbar = () => {
     const { theme } = changeThemeStore();
     const path = useLocation();
@@ -33,14 +37,14 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={`${hasBackground ? 'shadow' : 'border-b border-slate-200'} ${theme === 'dark' ? 'bg-wise-dark' : 'bg-white'} sticky top-0 w-full transition-all duration-300 z-50 py-2`}>
+        <nav className={`${hasBackground ? 'shadow' : 'border-b border-slate-200'} ${theme === 'dark' ? 'bg-wise-dark border-b-0' : 'bg-white'} sticky top-0 w-full transition-all duration-300 z-50 py-2`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-12 lg:px-6">
                 <div className="flex justify-between h-16 items-center">
                     {/* Logo and brand */}
                     <div className="flex items-center">
                         <Link to="/" className="flex-shrink-0">
                             <div className="flex items-center">
-                                <img src={theme === 'dark' ? "wise-lg-secondary.png" : "wise-lg-primary.png"} alt="" className="w-14" />
+                                <img src={theme === 'dark' ? WiseSecondary : WisePrimary} alt="" className="w-14" />
                                 <h1 className={`${theme === 'dark' ? "text-wise-secondary" : "text-wise-primary"} font-bold text-2xl`}>Number Wise</h1>
                             </div>
                         </Link>

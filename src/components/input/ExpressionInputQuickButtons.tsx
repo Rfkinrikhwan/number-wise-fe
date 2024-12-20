@@ -1,8 +1,13 @@
+import { cn } from "@/lib/utils";
+import { changeThemeStore } from "@/store";
+
 interface ExpressionInputQuickButtonsProps {
     inputModifier: any;
 }
 
 const ExpressionInputQuickButtons = ({ inputModifier }: ExpressionInputQuickButtonsProps) => {
+    const { theme } = changeThemeStore();
+
     const buttons = [
         "¬",
         "∧",
@@ -20,18 +25,22 @@ const ExpressionInputQuickButtons = ({ inputModifier }: ExpressionInputQuickButt
         "A",
         "B",
         "C",
-        "⌫",
+        "D",
+        "E",
     ];
 
     return (
-        <div className="flex flex-row flex-wrap justify-center gap-2.5 md:gap-4">
+        <div className="grid grid-cols-5 md:flex md:flex-row md:flex-wrap md:justify-between gap-2 md:gap-2">
             {buttons.map((buttonText: string) => {
                 return (
                     <button
                         type="button"
                         key={buttonText}
                         onClick={() => inputModifier(buttonText)}
-                        className="grid h-14 w-14 place-items-center rounded-lg border border-neutral-400 p-2.5 text-xl font-medium dark:border-neutral-100/70 dark:hover:bg-neutral-300/10"
+                        className={
+                            `grid h-14 w-14 place-items-center rounded-lg p-2.5 text-xl font-medium border
+                            ${theme === "light" ? "border-wise-primary text-wise-primary" : "border-wise-secondary text-wise-secondary"}`
+                        }
                     >
                         {buttonText}
                     </button>

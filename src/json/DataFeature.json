@@ -9,7 +9,7 @@
                 "textColor": "text-blue-100",
                 "description": "The Fibonacci Sequence is a series of numbers with a unique and special pattern in mathematics...",
                 "background_img": "illustration-6.png",
-                "link": "/fibonacci"
+                "link": "fibonacci"
             },
             {
                 "title": "Prime Sequence",
@@ -17,7 +17,7 @@
                 "textColor": "text-purple-100",
                 "description": "The Prime Sequence is a series of special numbers that have exactly two divisors: 1 and...",
                 "background_img": "illustration-6.png",
-                "link": "/prima"
+                "link": "prime"
             },
             {
                 "title": "Odd-Even Sequence",
@@ -25,7 +25,7 @@
                 "textColor": "text-green-100",
                 "description": "The Odd-Even Sequence is a fundamental concept in mathematics that divides integers...",
                 "background_img": "illustration-6.png",
-                "link": "/ganjil-genap"
+                "link": "odd-even"
             },
             {
                 "title": "Geometric Sequence",
@@ -33,7 +33,7 @@
                 "textColor": "text-red-100",
                 "description": "The Geometric Sequence is a series of numbers where each term is obtained by...",
                 "background_img": "Illustration-2.png",
-                "link": "/geometri"
+                "link": "geometric"
             },
             {
                 "title": "Square Sequence",
@@ -41,7 +41,7 @@
                 "textColor": "text-red-100",
                 "description": "The Square Sequence shows a series of numbers obtained by squaring natural numbers...",
                 "background_img": "Illustration-2.png",
-                "link": "/kuadrat"
+                "link": "square"
             },
             {
                 "title": "Cubic Sequence",
@@ -49,7 +49,7 @@
                 "textColor": "text-red-100",
                 "description": "The Cubic Sequence is a series of numbers derived from raising natural numbers to the power of three, forming...",
                 "background_img": "Illustration-2.png",
-                "link": "/kubik"
+                "link": "cubic"
             }
         ]
     },
@@ -91,9 +91,9 @@
                 "title": "Truth Table",
                 "color": "#3b82f6",
                 "textColor": "text-blue-100",
-                "description": "The Fibonacci Sequence is a series of numbers with a unique and special pattern in mathematics...",
+                "description": "A truth table is a systematic representation for determining the truth value of a logical statement based on all possible...",
                 "background_img": "illustration-6.png",
-                "link": "/fibonacci"
+                "link": "truth-table"
             }
         ]
     }

@@ -43,8 +43,17 @@ const TruthTable = () => {
     }, [input, reverseOrder]);
 
     return (
-        <section className={`${theme === "dark" ? "bg-wise-dark" : ""} flex flex-col min-h-screen gap-10 px-4 py-6 sm:px-12 md:px-24 lg:px-48`}>
+        <section className={`${theme === "dark" ? "bg-wise-dark" : ""} flex flex-col min-h-screen gap-6 px-4 py-6 sm:px-12 md:px-24 lg:px-48`}>
             <HelpModal isOpen={modalOpen} close={() => setModalOpen(false)} />
+
+            <h1 className={`${theme === "dark" ? "text-white" : "text-gray-900"} text-4xl md:text-4xl quicksand-font leading-none`}>Truth Table</h1>
+
+            <p className={`${theme === "dark" ? "text-white" : "text-gray-900"} text-justify quicksand-font`}>
+                A truth table is a systematic representation for determining the truth value of a logical statement based on all possible combinations of
+                truth values of its component statements. In mathematical logic, this table is used to evaluate logical relationships, such as conjunction,
+                disjunction, implication, and equivalence, and to understand logical properties.
+            </p>
+
             <div className="flex flex-col">
                 <ExpressionInput
                     input={input}
