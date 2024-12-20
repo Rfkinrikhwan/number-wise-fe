@@ -1,0 +1,40 @@
+[
+    {
+        "section_name": "List Game",
+        "description": "",
+        "child_item": [
+            {
+                "title": "Arithmetic Shooter",
+                "color": "#3b82f6",
+                "textColor": "text-blue-100",
+                "description": "Shoot the correct answer to the arithmetic problem.",
+                "background_img": "illustration-6.png",
+                "link": "arithmetic-shooter"
+            },
+            {
+                "title": "Math Maze",
+                "color": "#a855f7",
+                "textColor": "text-purple-100",
+                "description": "Find your way out of the math maze by solving math problems.",
+                "background_img": "illustration-6.png",
+                "link": "math-maze"
+            },
+            {
+                "title": "Memory Quest",
+                "color": "#22c55e",
+                "textColor": "text-green-100",
+                "description": "Find the correct sequence of math problems.",
+                "background_img": "illustration-6.png",
+                "link": "memory-quest"
+            },
+            {
+                "title": "Prime Number Game",
+                "color": "#22c55e",
+                "textColor": "text-green-100",
+                "description": "Find the correct sequence of prime numbers.",
+                "background_img": "illustration-6.png",
+                "link": "prime-number-game"
+            }
+        ]
+    }
+]

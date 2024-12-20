@@ -31,7 +31,7 @@ export default function SectionOne({ theme }: { theme: string }) {
                     </h1>
 
                     <h1 className={`${theme === 'dark' ? 'text-white' : 'text-gray-900'} text-4xl sm:text-5xl lg:text-6xl xl:text-8xl mb-4 sm:mb-6 quicksand-font`}>
-                        <span className="text-purple-600 courgette">learn</span>{' '}
+                        <span className="text-wise-primary courgette">learn</span>{' '}
                         and{' '}
                         <span className="text-yellow-400 courgette">play</span>
                     </h1>

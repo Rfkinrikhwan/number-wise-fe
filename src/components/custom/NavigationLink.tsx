@@ -14,6 +14,17 @@ interface Props {
 export default function NavigationLink({ path, to, textContent, additional, theme }: Props) {
     const { openSidebarFn } = sideBarStore();
 
+    const isActive = () => {
+        if (to === "/") return path.pathname === to;
+        if (to === "/home") return path.pathname === to;
+        if (to === "/features") return path.pathname.startsWith(to);
+        if (to === "/courses") return path.pathname.startsWith(to);
+        if (to === "/blog") return path.pathname.startsWith(to);
+        if (to === "/game") return path.pathname.startsWith(to);
+
+        return false;
+    }
+
     const clickFunction = () => {
         window.scrollTo(0, 0);
 
@@ -23,7 +34,7 @@ export default function NavigationLink({ path, to, textContent, additional, them
     };
 
     const baseClass = `${theme === 'dark' ? 'text-white' : 'text-gray-600'} transition-colors duration-300 py-2 px-3 rounded-full`;
-    const activeClass = `${(path.pathname === to || (to === '/' && path.pathname === '/home')) ? (theme === 'dark' ? 'border text-wise-secondary font-bold border-wise-secondary' : 'border text-wise-primary font-bold border-wise-primary') : ''}`;
+    const activeClass = isActive() ? (theme === 'dark' ? 'border text-wise-secondary font-bold border-wise-secondary' : 'border text-wise-primary font-bold border-wise-primary') : '';
     const hoverClass = `hover:${theme === 'dark' ? 'text-gray-300' : 'text-gray-600 font-semibold'}`;
 
     if (additional === "sideNav") {
