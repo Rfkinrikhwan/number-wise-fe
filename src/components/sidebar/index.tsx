@@ -1,4 +1,4 @@
-import { sideBarStore } from "@/store";
+import { changeThemeStore, sideBarStore } from "@/store";
 import Curve from "../curve";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
@@ -8,6 +8,7 @@ import NavigationLink from "../custom/NavigationLink";
 
 export default function Sidebar() {
     const path = useLocation();
+    const { theme } = changeThemeStore();
     const { openSidebarFn } = sideBarStore();
 
     const menuSlide = {
@@ -38,11 +39,11 @@ export default function Sidebar() {
             </div>
 
             <div className="flex flex-col gap-2 transition-all duration-300 mt-8">
-                <NavigationLink path={path} to="/" additional="sideNav" textContent={'Home'} />
-                <NavigationLink path={path} to="/features" additional="sideNav" textContent={'Features'} />
-                <NavigationLink path={path} to="/courses" additional="sideNav" textContent={'Courses'} />
-                <NavigationLink path={path} to="/blog" additional="sideNav" textContent={'Blog'} />
-                <NavigationLink path={path} to="/game" additional="sideNav" textContent={'Game'} />
+                <NavigationLink theme={theme} path={path} to="/" additional="sideNav" textContent={'Home'} />
+                <NavigationLink theme={theme} path={path} to="/features" additional="sideNav" textContent={'Features'} />
+                <NavigationLink theme={theme} path={path} to="/courses" additional="sideNav" textContent={'Courses'} />
+                <NavigationLink theme={theme} path={path} to="/blog" additional="sideNav" textContent={'Blog'} />
+                <NavigationLink theme={theme} path={path} to="/game" additional="sideNav" textContent={'Game'} />
             </div>
 
             <Curve />

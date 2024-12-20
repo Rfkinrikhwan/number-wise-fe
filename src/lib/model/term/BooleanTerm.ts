@@ -1,10 +1,6 @@
 import Term from "./Term";
 
-/**
- * TODO doc
- *
- * @author Max Lohrmann <https://github.com/Max0440>
- */
+
 export default class BooleanTerm extends Term {
     private symbol: string;
 
@@ -15,6 +11,7 @@ export default class BooleanTerm extends Term {
     }
 
     public eval(variableAssignment: Map<string, boolean>): boolean {
+        console.log(variableAssignment)
         return this.symbol === "1";
     }
 
