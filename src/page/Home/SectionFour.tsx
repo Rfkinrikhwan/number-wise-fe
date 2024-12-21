@@ -1,6 +1,6 @@
 import WiseIcon from "@/components/icon";
 import { Link } from "react-router-dom";
-import DataBlog from "@/json/DataBlog.json"
+import DataBlog from "@/json/Blog/Data.json"
 
 
 export default function SectionFour({ theme }: { theme: string }) {
@@ -13,7 +13,7 @@ export default function SectionFour({ theme }: { theme: string }) {
             </h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-                {DataBlog.map((card, index) => (
+                {DataBlog.blog.map((card, index) => (
                     <div
                         key={index}
                         className="bg-wise-gray rounded-3xl overflow-hidden flex flex-col"
@@ -31,7 +31,7 @@ export default function SectionFour({ theme }: { theme: string }) {
 
                             <p className="text-gray-600 mt-2">{card.description}</p>
 
-                            <Link to={`/blog/3`} className={`flex justify-start items-center gap-3 w-max mt-5 ${theme === 'dark' ? 'text-wise-secondary' : 'text-wise-primary'}`}>
+                            <Link to={`/blog/${card.slug}`} className={`flex justify-start items-center gap-3 w-max mt-5 ${theme === 'dark' ? 'text-wise-secondary' : 'text-wise-primary'}`}>
                                 <p className='font-semibold'>Read More</p>
                                 <div className={`flex justify-center items-center rounded-full w-8 h-8 ${theme === 'dark' ? 'bg-wise-secondary' : 'bg-wise-primary'} text-white hover:bg-wise-primary/90 transition-colors`}>
                                     <WiseIcon iconName="GoArrowUpRight" />

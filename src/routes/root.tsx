@@ -16,6 +16,13 @@ import OddEven from "@/page/Feature/Sequence/OddEven";
 import Geometric from "@/page/Feature/Sequence/Geometric";
 import Square from "@/page/Feature/Sequence/Square";
 import Cubic from "@/page/Feature/Sequence/Cubic";
+import LengthConverter from "@/page/Feature/ConverterCalculator/LengthConverter";
+import AreaConverter from "@/page/Feature/ConverterCalculator/AreaConverter";
+import VolumeConverter from "@/page/Feature/ConverterCalculator/VolumeConverter";
+import MassConverter from "@/page/Feature/ConverterCalculator/MassaConverter";
+import TimeConverter from "@/page/Feature/ConverterCalculator/TimeConverter";
+import TemperatureConverter from "@/page/Feature/ConverterCalculator/TemperatureConverter";
+import NumberSystemConverter from "@/page/Feature/ConverterCalculator/NumberSystemConverter";
 
 export const routerData = createBrowserRouter([
     {
@@ -65,6 +72,38 @@ export const routerData = createBrowserRouter([
                         path: "cubic",
                         element: <Cubic />
                     },
+                    {
+                        path: "length-conversion",
+                        element: <LengthConverter />
+                    },
+                    {
+                        path: "area-conversion",
+                        element: <AreaConverter />
+                    },
+                    {
+                        path: "volume-conversion",
+                        element: <VolumeConverter />
+                    },
+                    {
+                        path: "mass-conversion",
+                        element: <MassConverter />
+                    },
+                    {
+                        path: "time-conversion",
+                        element: <TimeConverter />
+                    },
+                    {
+                        path: "temp-conversion",
+                        element: <TemperatureConverter />
+                    },
+                    {
+                        path: "number-system-conversion",
+                        element: <NumberSystemConverter />
+                    },
+                    {
+                        path: "angle-conversion",
+                        element: <NumberSystemConverter />
+                    },
                 ]
             },
             {
@@ -76,7 +115,7 @@ export const routerData = createBrowserRouter([
                 element: <Blog />
             },
             {
-                path: "/blog/:id",
+                path: "/blog/:slug",
                 element: <DetailBlog />
             },
             {

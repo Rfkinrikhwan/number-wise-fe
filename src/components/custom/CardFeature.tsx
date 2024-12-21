@@ -33,7 +33,7 @@ export default function CardFeature({ cardData, theme }: props) {
                         }
                     </div>
                     <motion.div
-                        className={`my-5 ${isListView ? '' : 'grid gap-8 md:grid-cols-3'}`}
+                        className={`my-5 ${isListView ? '' : 'grid gap-5 md:grid-cols-3'}`}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3 }}

@@ -3,6 +3,7 @@ import { changeThemeStore } from "@/store";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import BackNavigation from "@/components/custom/BackNavigation";
 
 export default function Prime() {
     const { theme } = changeThemeStore();
@@ -48,12 +49,8 @@ export default function Prime() {
             className={`${theme === "dark" ? "bg-wise-dark" : ""
                 } flex flex-col min-h-screen gap-5 px-4 py-6 sm:px-12 md:px-24 lg:px-48`}
         >
-            <h1
-                className={`${theme === "dark" ? "text-white" : "text-gray-900"
-                    } text-4xl md:text-4xl quicksand-font leading-none`}
-            >
-                Prime Numbers
-            </h1>
+            <BackNavigation title="Prime Sequence" to="/features" />
+
 
             <p
                 className={`${theme === "dark" ? "text-white" : "text-gray-900"
@@ -91,7 +88,7 @@ export default function Prime() {
             {result && (
                 <motion.div
                     key={animationKey} // Memicu ulang animasi dengan `key`
-                    className="flex gap-3 mt-6 flex-wrap"
+                    className="grid grid-cols-5 md:flex gap-3 mt-1 md:flex-wrap"
                     initial="hidden"
                     animate="visible"
                     variants={{

@@ -1,0 +1,22 @@
+{
+    "blog": [
+        {
+            "slug": "learning-with-games",
+            "image": "36.png",
+            "title": "Learning With Games? Why...",
+            "description": "Test your understanding with a short but fun a quizzes"
+        },
+        {
+            "slug": "10-learning-game-ideas",
+            "image": "38.png",
+            "title": "10 Learning Game Ideas",
+            "description": "10 ideas for learning with for your kids to have fun"
+        },
+        {
+            "slug": "fun-activities-for-kids",
+            "image": "37.png",
+            "title": "Fun Activities For Kids",
+            "description": "Discover engaging and entertaining activities for kids of all ages."
+        }
+    ]
+}

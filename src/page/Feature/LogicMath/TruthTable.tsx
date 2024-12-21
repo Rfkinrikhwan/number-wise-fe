@@ -6,6 +6,7 @@ import ExpressionInput from "@/components/input/ExpressionInput";
 import { evaluate, TableFormat } from "@/lib/Adapter";
 import { changeThemeStore } from "@/store";
 import HelpModal from "@/components/custom/HelpModal";
+import BackNavigation from "@/components/custom/BackNavigation";
 
 const TruthTable = () => {
     const [evaluatedExpressionInTableFormat, setEvaluatedExpressionInTableFormat] =
@@ -46,7 +47,7 @@ const TruthTable = () => {
         <section className={`${theme === "dark" ? "bg-wise-dark" : ""} flex flex-col min-h-screen gap-6 px-4 py-6 sm:px-12 md:px-24 lg:px-48`}>
             <HelpModal isOpen={modalOpen} close={() => setModalOpen(false)} />
 
-            <h1 className={`${theme === "dark" ? "text-white" : "text-gray-900"} text-4xl md:text-4xl quicksand-font leading-none`}>Truth Table</h1>
+            <BackNavigation title="Truth Table" to="/features" />
 
             <p className={`${theme === "dark" ? "text-white" : "text-gray-900"} text-justify quicksand-font`}>
                 A truth table is a systematic representation for determining the truth value of a logical statement based on all possible combinations of

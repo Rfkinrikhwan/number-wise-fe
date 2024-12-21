@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "../ui/button";
 import WiseIcon from "../icon";
+import Logo from "../../../public/wise-lg-primary.png";
 import NavigationLink from "../custom/NavigationLink";
 
 export default function Sidebar() {
@@ -23,12 +24,12 @@ export default function Sidebar() {
             initial="initial"
             animate="enter"
             exit="exit"
-            className="h-screen bg-[#f3f2f7] fixed right-0 top-0 text-black z-[9999] w-full p-4">
+            className={`h-screen ${theme === "dark" ? "bg-wise-dark" : "bg-[#f3f2f7]"} fixed right-0 top-0 text-black z-[9999] w-full p-4`}>
             <div className="flex items-center justify-between">
                 <div className="flex items-center">
                     <Link to="/" className="flex-shrink-0">
                         <div className="flex items-center">
-                            <img src="wise-lg-primary.png" alt="" className="w-14" />
+                            <img src={Logo} alt="" className="w-14" />
                             <h1 className='text-wise-primary font-bold text-2xl'>Number Wise</h1>
                         </div>
                     </Link>
