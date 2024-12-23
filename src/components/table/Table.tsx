@@ -12,6 +12,7 @@ interface TableProps {
 }
 
 const Table = ({ tableData, setReverseOrder }: TableProps) => {
+    console.log(setReverseOrder);
     const { theme } = changeThemeStore();
     const [copied, setCopied] = useState(false);
     const [currentTimeout, setCurrentTimeout] = useState<NodeJS.Timeout>();
@@ -38,7 +39,7 @@ const Table = ({ tableData, setReverseOrder }: TableProps) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {tableData.map((evaluation, index) => (
+                        {tableData.slice().reverse().map((evaluation, index) => (
                             <tr
                                 key={index}
                                 className="border-t border-neutral-400 dark:border-neutral-600 dark:hover:bg-neutral-700/30"
@@ -52,7 +53,7 @@ const Table = ({ tableData, setReverseOrder }: TableProps) => {
                 </table>
             </div>
 
-            <label className="relative inline-flex cursor-pointer items-center">
+            {/* <label className="relative inline-flex cursor-pointer items-center">
                 <input
                     type="checkbox"
                     value=""
@@ -61,7 +62,7 @@ const Table = ({ tableData, setReverseOrder }: TableProps) => {
                 />
                 <div className="peer h-6 w-11 rounded-full bg-neutral-300 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-violet-600 peer-checked:after:translate-x-full peer-checked:after:border-white dark:border-neutral-600 dark:bg-neutral-700"></div>
                 <span className="ml-3 text-sm font-medium">Reverse variable order</span>
-            </label>
+            </label> */}
 
             <Tooltip
                 variant={theme === "light" ? "light" : "dark"}

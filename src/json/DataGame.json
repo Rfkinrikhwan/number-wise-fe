@@ -4,36 +4,20 @@
         "description": "",
         "child_item": [
             {
-                "title": "Arithmetic Shooter",
+                "title": "24 Uno Math",
                 "color": "#3b82f6",
                 "textColor": "text-blue-100",
-                "description": "Shoot the correct answer to the arithmetic problem.",
+                "description": "Operate the numbers to find 24 if you want to win",
                 "background_img": "illustration-6.png",
                 "link": "arithmetic-shooter"
             },
             {
-                "title": "Math Maze",
+                "title": "Snake Math",
                 "color": "#a855f7",
                 "textColor": "text-purple-100",
-                "description": "Find your way out of the math maze by solving math problems.",
+                "description": "Eat the right numbers or you'll lose the match.",
                 "background_img": "illustration-6.png",
-                "link": "math-maze"
-            },
-            {
-                "title": "Memory Quest",
-                "color": "#22c55e",
-                "textColor": "text-green-100",
-                "description": "Find the correct sequence of math problems.",
-                "background_img": "illustration-6.png",
-                "link": "memory-quest"
-            },
-            {
-                "title": "Prime Number Game",
-                "color": "#22c55e",
-                "textColor": "text-green-100",
-                "description": "Find the correct sequence of prime numbers.",
-                "background_img": "illustration-6.png",
-                "link": "prime-number-game"
+                "link": "snake-math"
             }
         ]
     }

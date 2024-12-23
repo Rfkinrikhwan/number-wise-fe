@@ -26,7 +26,7 @@ export default function CardGame({ cardData, theme }: props) {
                         {index === 0 &&
                             <button
                                 onClick={toggleLayout}
-                                className={`p-1 rounded-lg ${theme === 'dark' ? 'bg-gray-700 text-white' : 'bg-gray-300'} hover:opacity-80`}
+                                className={`p-1 rounded-lg z-10 ${theme === 'dark' ? 'bg-gray-700 text-white' : 'bg-gray-300'} hover:opacity-80`}
                             >
                                 {isListView ? <Grid3X3 /> : <Rows3 />}
                             </button>
