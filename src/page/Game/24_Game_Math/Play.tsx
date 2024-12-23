@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import CardDeck from "../components/CardDeck";
-import Keyboard from "../components/Keyboard";
-import useGetDeck from "../hooks/useGetDeck";
-import useGetSolution from "../hooks/useGetSolution";
-import Timer from "../components/Timer";
-import Winning from "../components/Winning";
-import Losing from "../components/Losing";
-import Loading from "../components/Loading";
+import CardDeck from "@/components/custom/CardDeck";
+import Keyboard from "@/components/custom/Keyboard";
+import useGetDeck from "@/hooks/useGetDeck";
+import useGetSolution from "@/hooks/useGetSolution";
+import Timer from "@/components/custom/Timer";
+import Winning from "@/components/custom/Winning";
+import Losing from "@/components/custom/Losing";
+import Loading from "@/components/custom/Loading";
 import { useParams } from "react-router-dom";
-import Joyride from "react-joyride";
-import clickSound from "../audio/punchy-taps-ui-2.mp3";
+import clickSound from "@/audio/punchy-taps-ui-2.mp3";
 
 export default function Play() {
   const [deckValue, setDeckValue] = useState<string[]>([]);
@@ -56,18 +55,6 @@ export default function Play() {
     audio.play();
   };
 
-  const [tourCompleted, setTourCompleted] = useState(() => {
-    // Retrieve the tour run status from session storage
-    const status = localStorage.getItem("playTourCompleted");
-    // Parse the status as boolean (if it exists), default to false if not found
-    return status ? JSON.parse(status) : false;
-  });
-
-  useEffect(() => {
-    // Update local storage when tourCompleted changes
-    localStorage.setItem("playTourCompleted", JSON.stringify(tourCompleted));
-  }, [tourCompleted]); // Update whenever tourCompleted changes
-
   // to prevent the card deck being rendered before the solution is found
   const [solutionIsFound, setSolutionIsFound] = useState(false);
 
@@ -82,35 +69,6 @@ export default function Play() {
     // Cleanup function to clear the timeout if the component unmounts or the dependency changes
     return () => clearTimeout(timeoutId);
   }, [solution, solutionIsFound]); // Add solution as a dependency to the useEffect hook
-
-  const steps = [
-    {
-      disableBeacon: true,
-      target: ".timer",
-      content:
-        "You are given three minutes to solve the solution, when the time runs out and you haven't solved the calculation you lose",
-    },
-    {
-      target: ".reset-button",
-      content:
-        "When the game gets tough, you can always shuffle the cards in your deck to get a new combination of cards. But remember problems are not always easy to solve",
-    },
-    {
-      target: ".card-to-choose",
-      content:
-        "Tap the card to input the card value into your calculation solution, the card can only be used once. And you must use all the cards in the calculation.",
-    },
-    {
-      target: ".operation-keyboard",
-      content:
-        "Use this keyboard key to enter math operations for calculations",
-    },
-    {
-      target: ".give-up-button",
-      content:
-        "When your time is up and the math is not in your favor, it's okay to give up. You will be given one of the usable solutions. But remember, the cards will be shuffled again.",
-    },
-  ];
 
   const convertCardValue = (cardValue: string) => {
     switch (cardValue) {
@@ -201,40 +159,6 @@ export default function Play() {
   return (
     <>
       <div className="relative gap-2 ">
-        <Joyride
-          steps={steps}
-          run={!tourCompleted}
-          continuous
-          hideCloseButton
-          showProgress
-          showSkipButton
-          disableOverlayClose
-          callback={(data) => {
-            // play click sound when tour is updated
-            if (data.action === "update") {
-              playClickSound();
-            }
-
-            // save "playTourCompleted" in session storage when tour is completed
-            if (data.status === "finished" || data.status === "skipped")
-              setTourCompleted(true);
-          }}
-          styles={{
-            buttonNext: {
-              color: "white",
-              backgroundColor: "black",
-            },
-            buttonBack: {
-              color: "black",
-            },
-            buttonSkip: {
-              color: "red",
-            },
-            options: {
-              zIndex: 1000,
-            },
-          }}
-        />
         <Timer initialTime={3} onTimerEnd={handleGiveUp} />
         <button
           onClick={reshuffleDeck}

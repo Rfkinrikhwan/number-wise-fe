@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import useTheme from "../hooks/useTheme";
+import useTheme from "@/hooks/useTheme";
 import CardIcon from "../img/cards-icon.svg";
 import clickSound from "../audio/punchy-taps-ui-2.mp3";
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { CardDeckType } from "../types/cardDeck";
-import cardFlip from "../audio/paper-collect.mp3";
-import cardBack from "../img/card-back.png";
+import { CardDeckType } from "@/types/cardDeck";
+import cardFlip from "@/assets/audio/paper-collect.mp3";
+import cardBack from "@/assets/img/card-back.png";
 import ReactCardFlip from "react-card-flip";
 
 export default function CardDeck({
@@ -67,9 +67,8 @@ export default function CardDeck({
 
   return (
     <div
-      className={`grid card-to-choose grid-cols-${
-        cards.length / 2
-      } gap-2 mx-auto md:gap-3 w-fit `}
+      className={`grid card-to-choose grid-cols-${cards.length / 2
+        } gap-2 mx-auto md:gap-3 w-fit `}
     >
       {cards.map((card) => (
         <ReactCardFlip isFlipped={selectedCardCode.includes(card.code)}>
