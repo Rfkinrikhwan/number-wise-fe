@@ -108,7 +108,20 @@ export const routerData = createBrowserRouter([
             },
             {
                 path: "/game",
-                element: <Games />
+                children: [
+                    {
+                        path: "",
+                        element: <Games />
+                    },
+                    {
+                        path: "24-uno-math",
+                        element: <Games />
+                    },
+                    {
+                        path: "snake-math",
+                        element: <Games />
+                    },
+                ]
             },
             {
                 path: "/blog",
