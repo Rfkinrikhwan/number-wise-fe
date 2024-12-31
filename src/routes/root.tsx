@@ -23,6 +23,8 @@ import MassConverter from "@/page/Feature/ConverterCalculator/MassaConverter";
 import TimeConverter from "@/page/Feature/ConverterCalculator/TimeConverter";
 import TemperatureConverter from "@/page/Feature/ConverterCalculator/TemperatureConverter";
 import NumberSystemConverter from "@/page/Feature/ConverterCalculator/NumberSystemConverter";
+import SnakeMathGame from "@/page/Game/Snake_Game_Math";
+import MathPatternGame from "@/page/Game/Patern_Sequence";
 
 export const routerData = createBrowserRouter([
     {
@@ -114,11 +116,15 @@ export const routerData = createBrowserRouter([
                         element: <Games />
                     },
                     {
-                        path: "24-uno-math",
-                        element: <Games />
+                        path: "snake-math",
+                        element: <SnakeMathGame />
                     },
                     {
-                        path: "snake-math",
+                        path: "pattern-sequence",
+                        element: <MathPatternGame />
+                    },
+                    {
+                        path: "24-uno-math",
                         element: <Games />
                     },
                 ]

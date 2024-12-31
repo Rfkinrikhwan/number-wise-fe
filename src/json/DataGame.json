@@ -18,6 +18,14 @@
                 "description": "Eat the right numbers or you'll lose the match.",
                 "background_img": "illustration-6.png",
                 "link": "snake-math"
+            },
+            {
+                "title": "Pattern Sequence",
+                "color": "#a855f7",
+                "textColor": "text-purple-100",
+                "description": "Find the pattern to win the game, if you want to win",
+                "background_img": "illustration-6.png",
+                "link": "pattern-sequence"
             }
         ]
     }
