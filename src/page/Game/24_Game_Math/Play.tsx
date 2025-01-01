@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import CardDeck from "@/components/custom/CardDeck";
 import Keyboard from "@/components/custom/Keyboard";
-import useGetDeck from "@/hooks/useGetDeck";
-import useGetSolution from "@/hooks/useGetSolution";
+import useGetUnoDeck from "@/hooks/useGetUnoDeck";
+import useGetUnoSolution from "@/hooks/useGetUnoSolution";
 import Timer from "@/components/custom/Timer";
 import Winning from "@/components/custom/Winning";
 import Losing from "@/components/custom/Losing";
 import Loading from "@/components/custom/Loading";
 import { useParams } from "react-router-dom";
-import clickSound from "@/audio/punchy-taps-ui-2.mp3";
+import clickSound from "@/assets/audio/punchy-taps-ui-2.mp3";
+import { changeThemeStore } from "@/store";
 
 export default function Play() {
-  const [deckValue, setDeckValue] = useState<string[]>([]);
+  const { theme } = changeThemeStore();
   const [answer, setAnswer] = useState<string[]>([]);
-  const [gameState, setGameState] = useState<"playing" | "won" | "lost">(
-    "playing"
-  );
+  const [gameState, setGameState] = useState<"playing" | "won" | "lost">("playing");
   const [notification, setNotification] = useState("");
 
   useEffect(() => {
@@ -37,60 +37,38 @@ export default function Play() {
     isLoading: deckLoading,
     isSuccess: deckSuccess,
     refetch: refetchDeck,
-  } = useGetDeck({
-    // card number is either 4 or 6
-    cardNumber: Number(
-      cardNumber === "4" ? "4" : cardNumber === "6" ? "6" : "4"
-    ),
+  } = useGetUnoDeck({
+    cardNumber: Number(cardNumber === "4" ? "4" : cardNumber === "6" ? "6" : "4"),
   });
 
-  const { data: solution, isLoading: solutionLoading } = useGetSolution({
-    numbers: deckValue,
+  const { data: solution, isLoading: solutionLoading } = useGetUnoSolution({
+    cards: deckData || [],
   });
 
   const playClickSound = () => {
     const audio = new Audio(clickSound);
     audio.volume = 0.2;
-
     audio.play();
   };
 
-  // to prevent the card deck being rendered before the solution is found
   const [solutionIsFound, setSolutionIsFound] = useState(false);
 
   useEffect(() => {
-    // If solution.solution is true after 2 seconds
     const timeoutId = setTimeout(() => {
-      if (solution?.solution && solutionIsFound === false) {
+      if (solution?.solution && !solutionIsFound) {
         setSolutionIsFound(true);
       }
-    }, 2000); // 2000 milliseconds = 2 seconds
+    }, 2000);
 
-    // Cleanup function to clear the timeout if the component unmounts or the dependency changes
     return () => clearTimeout(timeoutId);
-  }, [solution, solutionIsFound]); // Add solution as a dependency to the useEffect hook
+  }, [solution, solutionIsFound]);
 
-  const convertCardValue = (cardValue: string) => {
-    switch (cardValue) {
-      case "JACK":
-      case "QUEEN":
-      case "KING":
-        return "10";
-      case "ACE":
-        return "11";
-      default:
-        return cardValue;
-    }
-  };
   useEffect(() => {
     if (deckData) {
-      setDeckValue(deckData.map((card) => convertCardValue(card.value)));
       setAnswer([]);
     }
-  }, [deckData, setDeckValue, setAnswer]);
+  }, [deckData]);
 
-  // refetch deck when solution
-  // I don't use the refetch deck in the useEffect dependencies because it causes the refetch to happen twice
   useEffect(() => {
     if (solution) {
       if (solution.solution === true) {
@@ -130,41 +108,63 @@ export default function Play() {
 
     try {
       const sanitizedExpression = answerString.replace(/[^-()\d/*+.]/g, "");
-
       const result = eval(sanitizedExpression);
 
       if (result === 24) {
         setGameState("won");
-      }
-      if (result !== 24) {
-        setNotification("Your solusion is not correct");
+      } else {
+        setNotification("Your solution is not correct");
       }
     } catch (error) {
       setNotification("Invalid expression");
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (solutionLoading || deckLoading || !solutionIsFound) {
-    return <Loading />;
+    return (
+      <section className={`min-h-screen flex flex-col items-center justify-center p-4 ${theme === 'dark' ? 'bg-wise-dark' : 'bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900'} relative`}>
+        <Loading />
+      </section>
+    );
   }
 
   if (gameState === "won") {
-    return <Winning playAgain={playAgain} />;
+    return (
+      <section className={`min-h-screen flex flex-col items-center justify-center p-4 ${theme === 'dark' ? 'bg-wise-dark' : 'bg-gradient-to-br from-green-100 to-blue-100 dark:from-green-900 dark:to-blue-900'} relative`}>
+        <Winning playAgain={playAgain} />
+      </section>
+    );
   }
 
   if (gameState === "lost") {
-    return <Losing playAgain={playAgain} solution={solution?.equation} />;
+    return (
+      <section className={`min-h-screen flex flex-col items-center justify-center p-4 ${theme === 'dark' ? 'bg-wise-dark' : 'bg-gradient-to-br from-red-100 to-orange-100 dark:from-red-900 dark:to-orange-900'} relative`}>
+        <Losing playAgain={playAgain} solution={solution?.equation || "No solution found"} />
+      </section>
+    );
   }
 
   return (
-    <>
-      <div className="relative gap-2 ">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className={`min-h-screen flex flex-col items-center justify-center py-10 bg-gradient-to-br ${theme === 'dark' ? 'bg-wise-dark' : 'from-blue-50 to-purple-50'} relative`}
+    >
+      <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#80808018_1px,transparent_1px),linear-gradient(to_bottom,#80808018_1px,transparent_1px)] bg-[size:30px_30px] z-0" />
+      <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-md">
         <Timer initialTime={3} onTimerEnd={handleGiveUp} />
-        <button
+        <motion.button
           onClick={reshuffleDeck}
           type="button"
           title="reshuffle"
-          className="absolute top-2 -right-7 reset-button"
+          className="absolute top-1 right-2 flex items-center justify-center p-2 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-10"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -172,7 +172,7 @@ export default function Play() {
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
-            className="w-5 h-5"
+            className="w-6 h-6 text-blue-600 dark:text-blue-400"
           >
             <path
               strokeLinecap="round"
@@ -180,33 +180,71 @@ export default function Play() {
               d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
             />
           </svg>
-        </button>
-      </div>
-      {deckSuccess && deckData && (
-        <CardDeck input={answer} setInput={setAnswer} cards={deckData} />
-      )}
+        </motion.button>
+        <AnimatePresence>
+          {deckSuccess && deckData && (
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className="my-8"
+            >
+              <CardDeck input={answer} setInput={setAnswer} cards={deckData} />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-      <hgroup className="py-2 space-y-0 text-center">
-        <p>Your solution</p>
-        {!notification && (
-          <h3 className="min-h-[30px]">
-            {answer.length > 0 ? answer.join(" ") : "_"}
-          </h3>
-        )}
-        {notification && (
-          <p className="py-1 mx-auto text-sm text-center text-white bg-red-400 border rounded-lg w-60 min-h-[30px]">
-            {notification}
-          </p>
-        )}
-      </hgroup>
-      <div className="space-y-3 operation-keyboard">
-        <Keyboard
-          input={answer}
-          setInput={setAnswer}
-          onGiveUp={handleGiveUp}
-          onSubmit={handleSubmitAnswer}
-        />
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="w-full max-w-md"
+        >
+          <hgroup className="py-4 space-y-2 text-center">
+            <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">Your solution</p>
+            <AnimatePresence>
+              {!notification && (
+                <motion.h3
+                  key="answer"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="min-h-[30px] text-2xl font-bold text-blue-600 dark:text-blue-400"
+                >
+                  {answer.length > 0 ? answer.join(" ") : "_"}
+                </motion.h3>
+              )}
+              {notification && (
+                <motion.p
+                  key="notification"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="py-2 px-4 mx-auto text-sm text-center text-white bg-red-500 rounded-lg shadow-md"
+                >
+                  {notification}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </hgroup>
+
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="space-y-4"
+          >
+            <Keyboard
+              input={answer}
+              setInput={setAnswer}
+              onGiveUp={handleGiveUp}
+              onSubmit={handleSubmitAnswer}
+            />
+          </motion.div>
+        </motion.div>
       </div>
-    </>
+    </motion.section>
   );
 }
+

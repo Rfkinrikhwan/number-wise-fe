@@ -25,6 +25,9 @@ import TemperatureConverter from "@/page/Feature/ConverterCalculator/Temperature
 import NumberSystemConverter from "@/page/Feature/ConverterCalculator/NumberSystemConverter";
 import SnakeMathGame from "@/page/Game/Snake_Game_Math";
 import MathPatternGame from "@/page/Game/Patern_Sequence";
+import Play from "@/page/Game/24_Game_Math/Play";
+import HomeGame24 from "@/page/Game/24_Game_Math/Home";
+import HowToPlay from "@/page/Game/24_Game_Math/HowToPlay";
 
 export const routerData = createBrowserRouter([
     {
@@ -125,7 +128,15 @@ export const routerData = createBrowserRouter([
                     },
                     {
                         path: "24-uno-math",
-                        element: <Games />
+                        element: <HomeGame24 />
+                    },
+                    {
+                        path: "24-uno-math/play/:cardNumber",
+                        element: <Play />
+                    },
+                    {
+                        path: "24-uno-math/how-to-play",
+                        element: <HowToPlay />
                     },
                 ]
             },

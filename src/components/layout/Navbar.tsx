@@ -37,7 +37,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={`${hasBackground ? 'shadow' : 'border-b border-slate-200'} ${theme === 'dark' ? 'bg-wise-dark border-b-0' : 'bg-white'} sticky top-0 w-full transition-all duration-300 z-50 py-2`}>
+        <nav id='navbar-wise' className={`${hasBackground ? 'shadow' : 'border-b border-slate-200'} ${theme === 'dark' ? 'bg-wise-dark border-b-0' : 'bg-white'} sticky top-0 w-full transition-all duration-300 z-50 py-2`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-12 lg:px-6">
                 <div className="flex justify-between h-16 items-center">
                     {/* Logo and brand */}

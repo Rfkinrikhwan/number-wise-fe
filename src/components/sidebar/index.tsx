@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "../ui/button";
 import WiseIcon from "../icon";
-import Logo from "../../../public/wise-lg-primary.png";
+import LogoLight from "../../../public/wise-lg-primary.png";
+import LogoDark from "../../../public/wise-lg-secondary.png";
 import NavigationLink from "../custom/NavigationLink";
 
 export default function Sidebar() {
@@ -29,12 +30,12 @@ export default function Sidebar() {
                 <div className="flex items-center">
                     <Link to="/" className="flex-shrink-0">
                         <div className="flex items-center">
-                            <img src={Logo} alt="" className="w-14" />
-                            <h1 className='text-wise-primary font-bold text-2xl'>Number Wise</h1>
+                            <img src={theme === "dark" ? LogoDark : LogoLight} alt="" className="w-14" />
+                            <h1 className={`${theme === 'dark' ? 'text-wise-secondary' : 'text-wise-primary'} font-bold text-2xl`}>Number Wise</h1>
                         </div>
                     </Link>
                 </div>
-                <Button className='block sm:hidden bg-transparent hover:bg-transparent rounded-full text-black shadow-none' onClick={() => openSidebarFn()}>
+                <Button className={`block sm:hidden ${theme === "dark" ? "text-[#f3f2f7] hover:text-[#f3f2f7]" : "text-wise-dark hover:text-wise-dark "} rounded-full`} onClick={() => openSidebarFn()}>
                     <WiseIcon iconName="HiOutlineMenuAlt3" size={30} />
                 </Button>
             </div>

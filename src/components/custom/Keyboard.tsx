@@ -1,5 +1,6 @@
 import { useState } from "react";
-import clickSound from "../audio/punchy-taps-ui-2.mp3";
+import { motion } from "framer-motion";
+import clickSound from "@/assets/audio/punchy-taps-ui-2.mp3";
 import ConfirmationModal from "./ConfirmationModal";
 
 export default function Keyboard({
@@ -16,7 +17,6 @@ export default function Keyboard({
   const playClickSound = () => {
     const audio = new Audio(clickSound);
     audio.volume = 0.2;
-
     audio.play();
   };
 
@@ -25,7 +25,6 @@ export default function Keyboard({
 
     playClickSound();
 
-    // operator cant be side by side
     if (
       input.length > 0 &&
       operator.includes(input[input.length - 1]) &&
@@ -33,13 +32,11 @@ export default function Keyboard({
     )
       return;
 
-    // only opening parenthesis can be at first
     if (input.length === 0 && value !== "(") return;
     else {
       setInput([...input, value]);
     }
 
-    // only closing parenthesis can be at last
     if (input.length > 0 && value === ")" && input[input.length - 1] !== "(")
       return;
     else {
@@ -60,97 +57,88 @@ export default function Keyboard({
     setModalOpen(true);
   };
 
+  const buttonVariants = {
+    hover: { scale: 1.05, transition: { duration: 0.2 } },
+    tap: { scale: 0.95, transition: { duration: 0.2 } },
+  };
+
   return (
-    <div className="flex flex-row gap-2 w-fit">
-      <div className="grid grid-cols-4 col-span-4 gap-2 mx-auto w-fit">
-        <button
-          className="keyboard"
-          onClick={() => handleInputOperator("*")}
-          type="button"
-          title="Multiply"
-        >
-          <p>x</p>
-        </button>
-        <button
-          className="keyboard"
-          onClick={() => handleInputOperator("/")}
-          type="button"
-          title="Divide"
-        >
-          <p>÷</p>
-        </button>
-
-        <button
-          className="keyboard"
-          onClick={() => handleInputOperator("+")}
-          type="button"
-          title="Add"
-        >
-          <p>+</p>
-        </button>
-
-        <button
-          className="keyboard"
-          onClick={() => handleInputOperator("-")}
-          type="button"
-          title="Subtract"
-        >
-          <p>-</p>
-        </button>
-
-        <button
-          className="keyboard"
-          onClick={() => handleInputOperator("(")}
-          type="button"
-          title="Open parenthesis"
-        >
-          <p>(</p>
-        </button>
-        <button
-          className="keyboard"
-          onClick={() => handleInputOperator(")")}
-          type="button"
-          title="Close parenthesis"
-        >
-          <p>)</p>
-        </button>
-        <button
-          className="h-10 col-span-2 primary-button"
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="flex flex-col gap-4 w-full max-w-md mx-auto"
+    >
+      <div className="grid grid-cols-4 gap-2">
+        {[
+          { symbol: "x", value: "*", title: "Multiply" },
+          { symbol: "÷", value: "/", title: "Divide" },
+          { symbol: "+", value: "+", title: "Add" },
+          { symbol: "-", value: "-", title: "Subtract" },
+          { symbol: "(", value: "(", title: "Open parenthesis" },
+          { symbol: ")", value: ")", title: "Close parenthesis" },
+        ].map((item) => (
+          <motion.button
+            key={item.symbol}
+            className="keyboard bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-100 rounded-lg p-4 text-2xl font-bold shadow-md hover:shadow-lg transition-shadow"
+            onClick={() => handleInputOperator(item.value)}
+            type="button"
+            title={item.title}
+            variants={buttonVariants}
+            whileHover="hover"
+            whileTap="tap"
+          >
+            {item.symbol}
+          </motion.button>
+        ))}
+        <motion.button
+          className="col-span-2 bg-green-500 hover:bg-green-600 text-white rounded-lg p-4 text-xl font-bold shadow-md hover:shadow-lg transition-all"
           onClick={onSubmit}
           type="button"
           title="Submit"
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
         >
           Submit
-        </button>
-        <button
+        </motion.button>
+      </div>
+      <div className="grid grid-cols-5 gap-2">
+        <motion.button
+          className="col-span-4 bg-red-500 hover:bg-red-600 text-white rounded-lg p-4 text-xl font-bold shadow-md hover:shadow-lg transition-all"
           onClick={handleConfirm}
-          className="!w-full col-span-4 primary-button h-10 bg-primary text-secondary dark:bg-secondary dark:text-primary hover:bg-red-500 dark:hover:bg-red-500 give-up-button"
           type="button"
           title="Give up"
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
         >
           Give up
-        </button>
+        </motion.button>
+        <motion.button
+          className="bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-lg p-4 text-xl font-bold shadow-md hover:shadow-lg transition-all"
+          onClick={handleDelete}
+          type="button"
+          title="Delete"
+          variants={buttonVariants}
+          whileHover="hover"
+          whileTap="tap"
+        >
+          Del
+        </motion.button>
       </div>
-      <button
-        className="primary-button"
-        onClick={handleDelete}
-        type="button"
-        title="Delete"
-      >
-        Del
-      </button>
       <ConfirmationModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         onSubmit={onGiveUp}
         title="Confirmation"
       >
-        <p className="font-medium">Are you sure you want to give up?</p>
-        <p className="leading-tight">
-          Sometimes it's okay to give up, look the other way and find another
-          path.
+        <p className="font-medium text-lg mb-2">Are you sure you want to give up?</p>
+        <p className="text-gray-600 dark:text-gray-300">
+          Sometimes it's okay to give up, look the other way and find another path.
         </p>
       </ConfirmationModal>
-    </div>
+    </motion.div>
   );
 }
+

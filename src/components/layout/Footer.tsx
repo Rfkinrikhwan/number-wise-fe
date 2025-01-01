@@ -6,7 +6,7 @@ export default function Footer() {
     const { theme } = changeThemeStore();
 
     return (
-        <footer className={`${theme === 'dark' ? 'bg-wise-secondary' : 'bg-wise-primary'} text-gray-200 py-8 h-72`}>
+        <footer id='footer-wise' className={`${theme === 'dark' ? 'bg-wise-secondary' : 'bg-wise-primary'} text-gray-200 py-8 h-72`}>
             <div className="container px-4 sm:px-12 flex flex-col justify-between md:px-24 lg:px-48 h-full">
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     {/* Section Brand */}
