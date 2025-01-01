@@ -64,7 +64,7 @@ const useGetUnoDeck = ({ cardNumber }: { cardNumber: number }) => {
         id: `${card.color}-${card.value}`,
         value: card.value,
         color: card.color,
-        image: `/assets/uno-cards/${card.color}_${card.value}.png`, // Asumsikan ini path gambar
+        image: `/uno-cards/${card.color}_${card.value}.png`, // Asumsikan ini path gambar
       }));
 
       setData(selectedCards);

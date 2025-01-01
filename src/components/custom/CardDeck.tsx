@@ -68,7 +68,7 @@ export default function CardDeck({
             {!selectedCardIds.includes(card.id) ? (
               <motion.img
                 key="front"
-                src={`/src${card.image}`}
+                src={`${card.image}`}
                 alt={`${card.color} ${card.value}`}
                 className="2xl:w-[128px] shadow-lg 2xl:h-[178px] md:w-[100px] md:h-[140px] w-[80px] h-[120px] rounded-lg overflow-visible cursor-pointer"
                 onClick={() => handleInput(card.value, card.id)}
