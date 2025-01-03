@@ -1,10 +1,11 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import { generateQuestion, Question } from '@/lib/util/QuestionGenerator';
-import { motion } from 'framer-motion';
 import { SnakeSegment } from './SnakeSegment';
 import { Button } from '@/components/ui/button';
-import { X } from 'lucide-react';
+import { X, ArrowUp, ArrowDown, ArrowLeft, ArrowRight } from 'lucide-react';
 import { changeThemeStore } from '@/store';
+import useSwipe from '@/hooks/useSwipe';
 
 type Position = {
     x: number;
@@ -28,8 +29,18 @@ export default function SnakeQuizGame() {
     const [isGameRunning, setIsGameRunning] = useState(false);
     const [isFullScreen, setIsFullScreen] = useState(false);
     const { theme } = changeThemeStore();
+    const gameboardRef = useRef<HTMLDivElement>(null);
+    const controls = useAnimation();
     const navbar = document.getElementById('navbar-wise');
     const footer = document.getElementById('footer-wise');
+
+    const { onTouchStart, onTouchMove, onTouchEnd } = useSwipe(handleSwipe);
+
+    function handleSwipe(direction: 'UP' | 'DOWN' | 'LEFT' | 'RIGHT') {
+        if (isGameRunning) {
+            setDirection(direction);
+        }
+    }
 
     const moveSnake = useCallback(() => {
         if (gameOver || !isGameRunning) return;
@@ -62,6 +73,7 @@ export default function SnakeQuizGame() {
                 if (eatenFood.value === question.correctAnswer) {
                     setScore((prevScore) => prevScore + eatenFood.value);
                     newSnake.push(...Array(eatenFood.value).fill(newSnake[newSnake.length - 1]));
+                    controls.start({ scale: [1, 1.2, 1], transition: { duration: 0.3 } });
                 } else {
                     const penalty = eatenFood.value;
                     if (newSnake.length <= penalty) {
@@ -69,15 +81,22 @@ export default function SnakeQuizGame() {
                     } else {
                         newSnake.splice(newSnake.length - penalty, penalty);
                     }
+                    controls.start({ x: [0, -10, 10, -10, 10, 0], transition: { duration: 0.5 } });
                 }
                 setFood([]);
             } else if (newSnake.length > INITIAL_SNAKE_LENGTH) {
                 newSnake.pop();
             }
 
+            // Check for collision with self
+            const headString = JSON.stringify(head);
+            if (newSnake.slice(1).some(segment => JSON.stringify(segment) === headString)) {
+                setGameOver(true);
+            }
+
             return newSnake;
         });
-    }, [direction, food, gameOver, question, isGameRunning]);
+    }, [direction, food, gameOver, question, isGameRunning, controls]);
 
     useEffect(() => {
         if (isGameRunning) {
@@ -143,21 +162,16 @@ export default function SnakeQuizGame() {
             footer.style.display = 'none';
         }
 
-        // Mengaktifkan mode layar penuh
-        document.documentElement.requestFullscreen().catch((err) => {
-            console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-        });
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen().catch((err) => {
+                console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+            });
+        }
     };
-
 
     const exitGame = () => {
         setIsGameRunning(false);
         setIsFullScreen(false);
-        if (document.fullscreenElement) {
-            document.exitFullscreen().catch((err) => {
-                console.error(`Error attempting to exit full-screen mode: ${err.message} (${err.name})`);
-            });
-        }
 
         // Menampilkan navbar
         if (navbar) {
@@ -167,6 +181,12 @@ export default function SnakeQuizGame() {
         // Menampilkan footer
         if (footer) {
             footer.style.display = 'block';
+        }
+
+        if (document.fullscreenElement) {
+            document.exitFullscreen().catch((err) => {
+                console.error(`Error attempting to exit full-screen mode: ${err.message} (${err.name})`);
+            });
         }
     };
 
@@ -189,7 +209,7 @@ export default function SnakeQuizGame() {
                 <div className="absolute inset-0 h-full top-16 w-full bg-[linear-gradient(to_right,#80808018_1px,transparent_1px),linear-gradient(to_bottom,#80808018_1px,transparent_1px)] bg-[size:30px_30px]"></div>
 
                 <motion.h1
-                    className={`text-7xl font-bold mb-4 ${theme === 'dark' ? 'text-white' : 'text-black'}`}
+                    className={`text-4xl sm:text-7xl relative font-bold mb-4 ${theme === 'dark' ? 'text-white' : 'text-black'}`}
                     initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, type: "spring", stiffness: 120 }}
@@ -197,11 +217,12 @@ export default function SnakeQuizGame() {
                     Snake Quiz Game
                 </motion.h1>
                 <motion.div
+                    className='relative'
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.5, type: "spring", stiffness: 200, damping: 10 }}
                 >
-                    <Button className={`mt-5 z-10 text-3xl py-6 ${theme === 'dark' ? 'bg-wise-secondary hover:bg-wise-secondary/90 text-white' : 'bg-wise-primary hover:bg-wise-primary/90 text-white'}`} onClick={startGame}>
+                    <Button className={`mt-5 z-10 text-xl sm:text-3xl py-4 sm:py-6 ${theme === 'dark' ? 'bg-wise-secondary hover:bg-wise-secondary/90 text-white' : 'bg-wise-primary hover:bg-wise-primary/90 text-white'}`} onClick={startGame}>
                         Start Game
                     </Button>
                 </motion.div>
@@ -210,7 +231,10 @@ export default function SnakeQuizGame() {
     }
 
     return (
-        <div className={`${theme === 'dark' ? 'bg-wise-dark' : 'bg-gray-100'} flex flex-col items-center justify-center min-h-screen`}>
+        <motion.div
+            className={`${theme === 'dark' ? 'bg-wise-dark' : 'bg-gray-100'} flex flex-col items-center justify-center min-h-screen`}
+            animate={controls}
+        >
             <div className="relative w-full h-full p-4">
                 <Button
                     className="absolute top-4 right-4 z-10"
@@ -226,8 +250,12 @@ export default function SnakeQuizGame() {
                     <p className="text-lg">Score: {score}</p>
                 </div>
                 <div
+                    ref={gameboardRef}
                     className="relative w-full aspect-square max-w-[80vh] mx-auto border-2 border-gray-300 rounded-lg shadow-lg overflow-hidden game-board"
-                    style={{ position: 'relative' }}
+                    style={{ touchAction: 'none' }}
+                    onTouchStart={onTouchStart}
+                    onTouchMove={onTouchMove}
+                    onTouchEnd={onTouchEnd}
                 >
                     {snake.map((segment, index) => (
                         <SnakeSegment
@@ -268,8 +296,14 @@ export default function SnakeQuizGame() {
                         </div>
                     )}
                 </div>
+                <div className="mt-4 flex justify-center space-x-2">
+                    <Button onClick={() => setDirection('UP')} className="p-2"><ArrowUp /></Button>
+                    <Button onClick={() => setDirection('LEFT')} className="p-2"><ArrowLeft /></Button>
+                    <Button onClick={() => setDirection('DOWN')} className="p-2"><ArrowDown /></Button>
+                    <Button onClick={() => setDirection('RIGHT')} className="p-2"><ArrowRight /></Button>
+                </div>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

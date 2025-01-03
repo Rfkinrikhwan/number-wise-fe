@@ -1,21 +1,47 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 const MenuScreen = ({ startGame }: { startGame: () => void }) => {
+    const isMobile = useMediaQuery('(max-width: 640px)')
+
+    const containerVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                when: "beforeChildren",
+                staggerChildren: 0.1
+            }
+        },
+        exit: { opacity: 0, y: -50 }
+    }
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 }
+    }
+
     return (
         <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             className="text-center space-y-6"
         >
-            <h1 className="text-3xl font-bold">Math Sequence Game</h1>
-            <p className="text-lg">Test your knowledge of mathematical sequences!</p>
-            <div className="space-y-4">
-                <Button onClick={startGame} className="text-lg px-6 py-3">
+            <motion.h1 variants={itemVariants} className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+                Math Sequence Game
+            </motion.h1>
+            <motion.p variants={itemVariants} className="text-lg">
+                Test your knowledge of mathematical sequences!
+            </motion.p>
+            <motion.div variants={itemVariants} className="space-y-4">
+                <Button onClick={startGame} className="text-lg px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
                     Play
                 </Button>
-                <div className="text-left space-y-2">
+                <div className={`text-left space-y-2 ${isMobile ? 'text-sm' : 'text-base'}`}>
                     <h2 className="text-xl font-semibold">Sequence Types:</h2>
                     <ul className="list-disc list-inside space-y-1">
                         <li>Level 1: Fibonacci Sequence</li>
@@ -33,10 +59,9 @@ const MenuScreen = ({ startGame }: { startGame: () => void }) => {
                         <li>Complete as many sequences as you can before time runs out!</li>
                     </ul>
                 </div>
-            </div>
+            </motion.div>
         </motion.div>
     )
 }
 
 export default MenuScreen
-

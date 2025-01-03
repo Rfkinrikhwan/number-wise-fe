@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/button'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 const GameScreen = ({
     score,
@@ -12,7 +13,7 @@ const GameScreen = ({
     score: number
     setScore: (score: number) => void
     level: number
-    setLevel: (level: any) => void
+    setLevel: (level: number) => void
     endGame: () => void
 }) => {
     const [sequence, setSequence] = useState<number[]>([])
@@ -21,6 +22,8 @@ const GameScreen = ({
     const [streak, setStreak] = useState(0)
     const [feedback, setFeedback] = useState<'correct' | 'incorrect' | ''>('')
     const [timeLeft, setTimeLeft] = useState(60)
+
+    const isMobile = useMediaQuery('(max-width: 640px)')
 
     const generateSequence = () => {
         let numbers: number[] = []
@@ -67,7 +70,7 @@ const GameScreen = ({
             setStreak(streak + 1)
             setFeedback('correct')
             if (streak + 1 >= 3) {
-                setLevel((prev: number) => Math.min(prev + 1, 6))
+                setLevel(Math.min(level + 1, 6))
                 setStreak(0)
             }
         } else {
@@ -123,10 +126,12 @@ const GameScreen = ({
                 <span>Time: {timeLeft}s</span>
             </div>
 
-            <h2 className="text-2xl font-bold">Pattern Sequence</h2>
+            <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+                Pattern Sequence
+            </h2>
             <p className="text-lg mb-4">{getSequenceDescription()}</p>
 
-            <div className="flex justify-center gap-4 mb-6">
+            <div className={`flex justify-center gap-2 ${isMobile ? 'flex-wrap' : ''} mb-6`}>
                 <AnimatePresence>
                     {sequence.map((num, index) => (
                         <motion.div
@@ -135,14 +140,14 @@ const GameScreen = ({
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.5 }}
                             transition={{ duration: 0.3, delay: index * 0.1 }}
-                            className={`w-16 h-16 flex items-center justify-center text-xl font-bold rounded-lg
-                ${index === hiddenIndex
+                            className={`${isMobile ? 'w-12 h-12' : 'w-16 h-16'} flex items-center justify-center text-xl font-bold rounded-lg
+                            ${index === hiddenIndex
                                     ? feedback === 'correct'
                                         ? 'bg-green-500 text-white'
                                         : feedback === 'incorrect'
                                             ? 'bg-red-500 text-white'
                                             : 'bg-gray-200'
-                                    : 'bg-blue-500 text-white'}`}
+                                    : 'bg-gradient-to-br from-blue-400 to-purple-500 text-white'}`}
                         >
                             {index === hiddenIndex ? (feedback ? userAnswer : '?') : num}
                         </motion.div>
@@ -155,14 +160,14 @@ const GameScreen = ({
                     type="number"
                     value={userAnswer}
                     onChange={(e) => setUserAnswer(e.target.value)}
-                    className="w-24 p-2 text-center text-lg border rounded"
+                    className="w-24 p-2 text-center text-lg border rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="?"
                     disabled={!!feedback}
                 />
                 <div>
                     <Button
                         onClick={checkAnswer}
-                        className="ml-4"
+                        className="ml-4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 transition-all duration-300 transform hover:scale-105"
                         disabled={!userAnswer || !!feedback}
                     >
                         Check
@@ -174,8 +179,7 @@ const GameScreen = ({
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 20 }}
-                            className={`text-lg font-bold ${feedback === 'correct' ? 'text-green-500' : 'text-red-500'
-                                }`}
+                            className={`text-lg font-bold ${feedback === 'correct' ? 'text-green-500' : 'text-red-500'}`}
                         >
                             {feedback === 'correct' ? 'Correct!' : 'Try again!'}
                         </motion.p>
