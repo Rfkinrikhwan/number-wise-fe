@@ -119,7 +119,7 @@ export const routerData = createBrowserRouter([
                         element: <Games />
                     },
                     {
-                        path: "snake-math",
+                        path: "caterpillar-math",
                         element: <SnakeMathGame />
                     },
                     {

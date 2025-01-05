@@ -12,12 +12,12 @@
                 "link": "24-uno-math"
             },
             {
-                "title": "Snake Math",
+                "title": "Caterpillar Math",
                 "color": "#a855f7",
                 "textColor": "text-purple-100",
                 "description": "Eat the right numbers or you'll lose the match.",
                 "background_img": "illustration-6.png",
-                "link": "snake-math"
+                "link": "caterpillar-math"
             },
             {
                 "title": "Pattern Sequence",

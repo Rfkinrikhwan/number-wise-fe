@@ -54,7 +54,7 @@ export default function CardDeck({
       transition={{ duration: 0.5 }}
       className={`grid card-to-choose grid-cols-${Math.ceil(
         cards.length / 2
-      )} gap-2 mx-auto md:gap-3 w-fit`}
+      )} gap-3 mx-auto md:gap-3 w-fit`}
     >
       {cards.map((card) => (
         <motion.div
@@ -70,7 +70,7 @@ export default function CardDeck({
                 key="front"
                 src={`${card.image}`}
                 alt={`${card.color} ${card.value}`}
-                className="2xl:w-[128px] shadow-lg 2xl:h-[178px] md:w-[100px] md:h-[140px] w-[80px] h-[120px] rounded-lg overflow-visible cursor-pointer"
+                className="2xl:w-[128px] shadow-lg 2xl:h-[178px] md:w-[100px] md:h-[140px] w-44 rounded-lg overflow-visible cursor-pointer"
                 onClick={() => handleInput(card.value, card.id)}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -85,7 +85,7 @@ export default function CardDeck({
                 key="back"
                 src={cardBack}
                 alt={`${card.color} ${card.value} back`}
-                className="2xl:w-[128px] shadow-lg 2xl:h-[178px] md:w-[100px] md:h-[140px] w-[80px] h-[120px] rounded-lg overflow-visible card-icon"
+                className="2xl:w-[128px] shadow-lg 2xl:h-[178px] md:w-[100px] md:h-[140px] w-44 rounded-lg overflow-visible card-icon"
                 initial={{ opacity: 0, rotateY: 180 }}
                 animate={{ opacity: 1, rotateY: 180 }}
                 exit={{ opacity: 0, rotateY: 180 }}

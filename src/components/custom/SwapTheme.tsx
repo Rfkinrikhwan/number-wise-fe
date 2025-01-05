@@ -21,7 +21,7 @@ export default function SwapTheme() {
     return (
         <div
             onClick={toggleTheme}
-            className="fixed bottom-10 right-5 text-lg h-14 w-14 border rounded-full shadow flex items-center justify-center cursor-pointer bg-white dark:bg-gray-800 transition-colors duration-300"
+            className="fixed z-50 bottom-10 right-5 text-lg h-14 w-14 border rounded-full shadow flex items-center justify-center cursor-pointer bg-white dark:bg-gray-800 transition-colors duration-300"
         >
             <motion.div
                 key={theme}

@@ -67,9 +67,9 @@ export default function Keyboard({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col gap-4 w-full max-w-md mx-auto"
+      className="flex flex-col w-full max-w-md mx-auto gap-3"
     >
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-4 gap-2 px-5">
         {[
           { symbol: "x", value: "*", title: "Multiply" },
           { symbol: "÷", value: "/", title: "Divide" },
@@ -103,7 +103,8 @@ export default function Keyboard({
           Submit
         </motion.button>
       </div>
-      <div className="grid grid-cols-5 gap-2">
+
+      <div className="grid grid-cols-5 gap-2 px-5">
         <motion.button
           className="col-span-4 bg-red-500 hover:bg-red-600 text-white rounded-lg p-4 text-xl font-bold shadow-md hover:shadow-lg transition-all"
           onClick={handleConfirm}
@@ -127,6 +128,7 @@ export default function Keyboard({
           Del
         </motion.button>
       </div>
+
       <ConfirmationModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}

@@ -14,63 +14,72 @@ export const SnakeSegment: React.FC<SnakeSegmentProps> = ({ x, y, index, total, 
     const isHead = index === 0;
     const isTail = index === total - 1;
 
-    const getSegmentStyle = () => {
-        const baseStyle = {
-            position: 'absolute' as const,
-            width: `${100 / gridSize}%`,
-            height: `${100 / gridSize}%`,
-            left: `${(x / gridSize) * 100}%`,
-            top: `${(y / gridSize) * 100}%`,
-            backgroundColor: isHead ? '#4CAF50' : isTail ? '#81C784' : '#66BB6A',
-        };
+    const getSegmentColor = () => {
+        if (isHead) return 'from-green-700 to-green-900';
+        if (isTail) return 'from-green-600 to-green-800';
+        return 'from-green-500 to-green-700';
+    };
 
-        if (isHead) {
-            return {
-                ...baseStyle,
-                borderRadius: '50% 50% 0 0',
-            };
-        } else if (isTail) {
-            return {
-                ...baseStyle,
-                borderRadius: '0 0 50% 50%',
-            };
-        } else {
-            return {
-                ...baseStyle,
-                borderRadius: '25%',
-            };
+    const getRotation = () => {
+        switch (direction) {
+            case 'UP': return 0;
+            case 'RIGHT': return 90;
+            case 'DOWN': return 180;
+            case 'LEFT': return 270;
         }
     };
 
     return (
         <motion.div
-            style={getSegmentStyle()}
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+            className={`absolute bg-gradient-to-r ${getSegmentColor()} shadow-lg`}
+            style={{
+                width: `${120 / gridSize}%`,
+                height: `${120 / gridSize}%`,
+                left: `${(x / gridSize) * 100 - 10 / gridSize}%`,
+                top: `${(y / gridSize) * 100 - 10 / gridSize}%`,
+                borderRadius: isHead ? '60% 60% 30% 30%' : isTail ? '30% 30% 60% 60%' : '40%',
+            }}
+            initial={{ scale: 0, rotate: getRotation() }}
+            animate={{
+                scale: 1,
+                rotate: getRotation(),
+                transition: { type: 'spring', stiffness: 500, damping: 30 }
+            }}
+            transition={{
+                type: 'spring',
+                stiffness: 500,
+                damping: 30,
+            }}
         >
             {isHead && (
                 <>
-                    <div
+                    <motion.div
+                        className="absolute w-1/4 h-1/5 bg-black rounded-full"
                         style={{
-                            position: 'absolute',
-                            width: '20%',
-                            height: '20%',
-                            backgroundColor: 'white',
-                            borderRadius: '50%',
                             top: '20%',
-                            left: direction === 'LEFT' ? '20%' : '60%',
+                            left: direction === 'LEFT' ? '15%' : '60%',
                         }}
-                    />
+                        animate={{
+                            scale: [1, 1.1, 1],
+                        }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 1,
+                        }}
+                    >
+                        <motion.div
+                            className="absolute w-1/2 h-1/2 bg-white rounded-full"
+                            style={{
+                                top: '25%',
+                                left: '25%',
+                            }}
+                        />
+                    </motion.div>
                     <div
+                        className="absolute w-1/5 h-1/10 bg-red-600 rounded-full"
                         style={{
-                            position: 'absolute',
-                            width: '10%',
-                            height: '10%',
-                            backgroundColor: 'black',
-                            borderRadius: '50%',
-                            top: '25%',
-                            left: direction === 'LEFT' ? '25%' : '65%',
+                            bottom: '15%',
+                            left: '40%',
                         }}
                     />
                 </>

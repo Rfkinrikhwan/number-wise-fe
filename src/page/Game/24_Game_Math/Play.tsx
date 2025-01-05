@@ -11,6 +11,7 @@ import Loading from "@/components/custom/Loading";
 import { useParams } from "react-router-dom";
 import clickSound from "@/assets/audio/punchy-taps-ui-2.mp3";
 import { changeThemeStore } from "@/store";
+import WiseIcon from "@/components/icon";
 
 export default function Play() {
   const { theme } = changeThemeStore();
@@ -162,24 +163,11 @@ export default function Play() {
           onClick={reshuffleDeck}
           type="button"
           title="reshuffle"
-          className="absolute top-1 right-2 flex items-center justify-center p-2 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-10"
+          className="absolute top-1 right-5 flex items-center justify-center p-2 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-10"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-6 h-6 text-blue-600 dark:text-blue-400"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
-            />
-          </svg>
+          <WiseIcon iconName="HiOutlineRefresh" size={24} />
         </motion.button>
         <AnimatePresence>
           {deckSuccess && deckData && (
@@ -221,7 +209,7 @@ export default function Play() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="py-2 px-4 mx-auto text-sm text-center text-white bg-red-500 rounded-lg shadow-md"
+                  className="py-2 px-4 mx-5 text-sm text-center text-white bg-red-500 rounded-lg shadow-md"
                 >
                   {notification}
                 </motion.p>
@@ -233,7 +221,6 @@ export default function Play() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="space-y-4"
           >
             <Keyboard
               input={answer}

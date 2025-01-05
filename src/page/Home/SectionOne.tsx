@@ -2,8 +2,10 @@ import { motion, useAnimation } from 'framer-motion';
 import { useEffect } from 'react';
 import WiseIcon from '@/components/icon';
 import { Button } from '@/components/ui/button';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function SectionOne({ theme }: { theme: string }) {
+    const navigate = useNavigate();
     const learnControls = useAnimation();
     const playControls = useAnimation();
 
@@ -120,18 +122,20 @@ export default function SectionOne({ theme }: { theme: string }) {
                     transition={{ duration: 0.6, delay: 0.6 }}
                     className="flex justify-center"
                 >
-                    <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className={`flex items-center gap-3 ${theme === 'dark' ? 'bg-wise-secondary' : 'bg-wise-primary'} px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer`}
-                    >
-                        <p className={`text-white font-semibold text-sm sm:text-base`}>
-                            Get Started
-                        </p>
-                        <Button className={`rounded-full w-6 h-6 sm:w-8 sm:h-8 ${theme === 'dark' ? 'text-wise-secondary' : 'text-wise-primary'} bg-white hover:bg-white shadow-md`}>
-                            <WiseIcon iconName="GoArrowUpRight" />
-                        </Button>
-                    </motion.div>
+                    <Link to="/features">
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className={`flex items-center gap-3 ${theme === 'dark' ? 'bg-wise-secondary' : 'bg-wise-primary'} px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer`}
+                        >
+                            <p className={`text-white font-semibold text-sm sm:text-base`}>
+                                Get Started
+                            </p>
+                            <Button onClick={() => navigate('/features')} className={`rounded-full w-6 h-6 sm:w-8 sm:h-8 ${theme === 'dark' ? 'text-wise-secondary' : 'text-wise-primary'} bg-white hover:bg-white shadow-md`}>
+                                <WiseIcon iconName="GoArrowUpRight" />
+                            </Button>
+                        </motion.div>
+                    </Link>
                 </motion.div>
             </div>
 
