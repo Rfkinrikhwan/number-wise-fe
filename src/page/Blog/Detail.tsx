@@ -21,7 +21,7 @@ export default function DetailBlog() {
             {/* Hero Image */}
             <div className="mb-8 rounded-lg overflow-hidden shadow-lg">
                 <img
-                    src={`../../../public/${data.image}`}
+                    src={`/${data.image}`}
                     alt="Blog hero image"
                     className="w-full h-[400px] object-cover"
                 />
